@@ -1,13 +1,200 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Source+Code+Pro:700|Squada+One&display=swap');
+/* font-family: 'Lexend Deca', sans-serif; */
+/* font-family: 'Source Code Prop', sans-serif; */
+/* font-family: 'Squada One', sans-serif; */
+:root {
+  box-sizing: border-box;               
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(239,234,255,1) 100%);
+  min-height: 100vh;  
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 2rem;
+}
+
+header{
+  color: #4c4c4c;
+  font-family: 'Squada One', sans-serif;
+  display: flex;
+  margin: 1em;
+}
+
+header > h1 {
+  font-size: 5rem;
+}
+
+.main-container {
+  margin: 1em;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.75);
+}
+
+.stats {
+  background-color: #8e0e0e;
+  border-radius: 5px 5px 0 0;
+  /* color: #37d397; */
+  color: white;
+  font-family: 'Squada One', sans-serif;
+  font-size: 0.6em;
+  padding: 0.5em;
+
+  display: flex;
+}
+
+.stats > div {
+  flex-grow: 1;
+  padding: 0.1em;
+} 
+
+.stat-number {
+  font-size: 3em;
+  line-height: 1;
+}
+
+.quote-container {
+  background-color: #1137aa;
+  border-radius: 0 0 5px 5px;
+
+  color: white;
+}
+
+/* Score */
+
+/* Quote */
+.caret {
+  color: #37d397;
+  font-size: 0.6em;
+  position: absolute;
+  bottom: -0.9em;
+  left: 50%;
+  margin-left: -0.3em;
+
+  animation-name: caret-bounce;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+}
+
+.caret-space {
+  color: #37d397;
+  font-size: 0.5em;
+  position: absolute;
+  bottom: -0.8em;
+  left: 0.3em;
+
+  animation-name: caret-bounce;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+}
+
+.char {
+  position:relative;
+  transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.char-correct {
+  opacity: 0.5;
+}
+
+.quote-display {
+  min-height: 400px;
+  padding: 1em;
+
+  flex-grow: 1;
+}
+
+/* LastTypedKey */
+.blinking-cursor{
+  position: absolute;
+  bottom: 0.38em;
+  right: 0;
+  animation: 1s blink step-end infinite;
+}
+
+.key-history-container {
+  width: 50.5%;
+  height: 2em;
+
+  display:flex;
+  justify-content: flex-end;
+
+  position:relative;
+}
+
+.key-history-char{
+  display: inline-block;
+  min-width:0.7em;
+  text-align:center;
+}
+
+
+.input-header {
+  font-size: 0.65em;
+  text-align: center;
+}
+
+.input {
+  min-height: 2em;
+  padding-bottom: 0.5em;
+}
+
+
+
+/* Animations */
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@keyframes caret-bounce {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(0.3em);}
+  100% {transform: translateY(0);}
 }
