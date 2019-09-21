@@ -10,17 +10,19 @@ class Game extends React.Component {
     super(props);
 
     this.state = {
-      string: "I am a bob in a lonely world.",
+      tweet: '',
       currentKey: '',
       currentIndex: 0,
+      currentTweetIndex: 0,
       multiplier: 1,
       combo: 0,
       points: 0,
-      keyHistory: []
+      keyHistory: [],
+      tweets: []
     }
 
+    this.getTweets();
     this.handleOnChange = this.handleOnChange.bind(this);
-    this.getNextQuote = this.getNextQuote.bind(this);
   }
 
   componentDidMount() {
@@ -30,8 +32,8 @@ class Game extends React.Component {
   }
 
   componentDidUpdate() {
-    if(this.state.currentIndex === this.state.string.length) {
-      this.getNextQuote();
+    if(this.state.currentIndex === this.state.tweet.length) {
+      this.nextTweet();
     }
   }
 
@@ -56,13 +58,14 @@ class Game extends React.Component {
         break;
       case 100:
         this.setMultiplier(6); 
+        break;
       default:
     }
 
     //if a key is correct, add points and add combo
     //if a key isnt correct, reset combo and set multiplier back to 0
     if( !ignoreKeys.includes(currentVal) ) {
-      if (currentVal === this.state.string[this.state.currentIndex]) {
+      if (currentVal === this.state.tweet[this.state.currentIndex]) {
 
         this.setState( prev => {
           let points = prev.multiplier * 10;
@@ -107,9 +110,25 @@ class Game extends React.Component {
     }));
   }
 
-  getNextQuote() {
+  getTweets = () => {
+    const url = `/api/v1/tweets`;
+    fetch(url)
+    .then( data => data.json())
+    .then( data => {
+      this.setState({
+        tweet: data[0].full_text,
+        tweets: data
+      });
+    });
+  }
+
+  nextTweet = () => {
+    const nextTweetIndex = this.state.currentTweetIndex + 1;
+    const nextTweet = this.state.tweets[nextTweetIndex].full_text;
+
     this.setState( () => ({
-      string: "I am now a cat in a big big world.",
+      tweet: nextTweet,
+      currentTweetIndex: nextTweetIndex,
       currentIndex: 0,
     }));
   }
@@ -131,7 +150,7 @@ class Game extends React.Component {
 
           <div className="quote-container">
             <Quote 
-              quote={this.state.string} 
+              quote={this.state.tweet} 
               currentIndex={this.state.currentIndex} 
             />
             <LastTypedKey keyHistory={this.state.keyHistory} currentKey={this.state.currentKey} />

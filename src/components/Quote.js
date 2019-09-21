@@ -9,7 +9,7 @@ const Quote = (props) => {
     //else
       //means we've correctly typed in the char, turn down opacity
     if(props.currentIndex === index) {
-      if(char == ' ') {
+      if(char === ' ') {
         return (
           <>
           <span className="char">
@@ -28,7 +28,7 @@ const Quote = (props) => {
         );
       }
     } else {
-      if(char == ' ') {
+      if(char === ' ') {
         return (
           <span className="char">
             <span key={index+100}>{'\xa0'}</span>
