@@ -115,7 +115,7 @@ class Game extends React.Component {
   }
 
   getTweets = () => {
-    const url = `http://localhost:3001/api/v1/tweets`;
+    const url = `/api/v1/tweets`;
     fetch(url)
     .then( data => data.json())
     .then( data => {
