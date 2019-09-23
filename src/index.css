@@ -86,19 +86,19 @@ header > p {
 }
 
 .rotate-speed-2 {
-  animation: rotation 5s infinite linear;
-}
-.rotate-speed-3 {
   animation: rotation 4s infinite linear;
 }
-.rotate-speed-4 {
+.rotate-speed-3 {
   animation: rotation 3s infinite linear;
 }
-.rotate-speed-5 {
+.rotate-speed-4 {
   animation: rotation 2s infinite linear;
 }
-.rotate-speed-6 {
+.rotate-speed-5 {
   animation: rotation 1s infinite linear;
+}
+.rotate-speed-6 {
+  animation: rotation 0.5s infinite linear;
 }
 
 @keyframes rotation {
