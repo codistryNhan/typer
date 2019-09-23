@@ -27,5 +27,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^5.11.1",
+    "moment": "^2.24.0"
   }
 }

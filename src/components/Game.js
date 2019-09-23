@@ -1,8 +1,10 @@
 import React from 'react';
 import Combo from './Combo';
 import Score from './Score';
-import Quote from './Quote';
-import LastTypedKey from './LastTypedKey';
+import TweetHeader from './TweetHeader';
+import TweetInfo from './TweetInfo';
+import DisplayTweet from './DisplayTweet';
+import TypedKeys from './TypedKeys';
 import Multiplier from './Multiplier';
 
 class Game extends React.Component {
@@ -10,7 +12,7 @@ class Game extends React.Component {
     super(props);
 
     this.state = {
-      tweet: '',
+      tweet: 'I am a tweet',
       currentKey: '',
       currentIndex: 0,
       currentTweetIndex: 0,
@@ -18,11 +20,10 @@ class Game extends React.Component {
       combo: 0,
       points: 0,
       keyHistory: [],
-      tweets: []
+      tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
     }
 
     this.getTweets();
-    this.handleOnChange = this.handleOnChange.bind(this);
   }
 
   componentDidMount() {
@@ -32,17 +33,20 @@ class Game extends React.Component {
   }
 
   componentDidUpdate() {
-    if(this.state.currentIndex === this.state.tweet.length) {
+    if(this.state.currentIndex === this.state.tweet.length - 1) {
       this.nextTweet();
     }
   }
 
-  handleOnChange(e) {
+  handleOnChange = e => {
+    if(e.key === 32) {
+      e.preventDefault();
+    }
     const currentVal = e.key;
 
     const ignoreKeys = ['Shift', 'Alt', 'Control', 'Tab', 'CapsLock', 'Enter', 'Backspace'];
 
-    //set point multiplier if gets perfect letters in a roww
+    //Add multipliers for higher combos
     switch(this.state.combo) {
       case 5:
         this.setMultiplier(2);
@@ -111,7 +115,7 @@ class Game extends React.Component {
   }
 
   getTweets = () => {
-    const url = `/api/v1/tweets`;
+    const url = `http://localhost:3001/api/v1/tweets`;
     fetch(url)
     .then( data => data.json())
     .then( data => {
@@ -119,7 +123,8 @@ class Game extends React.Component {
         tweet: data[0].full_text,
         tweets: data
       });
-    });
+    })
+    .catch( err => console.log(err));
   }
 
   nextTweet = () => {
@@ -137,24 +142,34 @@ class Game extends React.Component {
     return (
       <div>
         <header>
-          <h1>Typing With The President</h1>
+          <h1 className="header">PRESIDENTIAL TYPER</h1>
+          <p>IMPROVE YOUR TYPING AND FOREIGN POLICY SKILLS AT THE SAME TIME</p>
         </header>
         
         <section className="main-container">
-          
-          <div className="stats">
+
+          <div className="stats-container">
             <Score score={this.state.points} />
-            <Multiplier multiplier={this.state.multiplier} />
             <Combo combo={this.state.combo} />
+            <Multiplier multiplier={this.state.multiplier} />
           </div>
 
-          <div className="quote-container">
-            <Quote 
-              quote={this.state.tweet} 
-              currentIndex={this.state.currentIndex} 
+          <div className="tweet-container">
+            <TweetHeader tweet={this.state.tweets[this.state.currentTweetIndex]} />
+            <DisplayTweet 
+              tweet={this.state.tweet} 
+              currentIndex={this.state.currentIndex}
             />
-            <LastTypedKey keyHistory={this.state.keyHistory} currentKey={this.state.currentKey} />
+            <TweetInfo 
+            tweet={this.state.tweets[this.state.currentTweetIndex]} 
+            />
+
           </div>
+
+          <TypedKeys 
+            keyHistory={this.state.keyHistory} 
+            currentKey={this.state.currentKey} 
+          />
                 
         </section>
       </div>

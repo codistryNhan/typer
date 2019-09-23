@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Source+Code+Pro:700|Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Source+Code+Pro:700|Squada+One|Oswald:700|Roboto|Anton&display=swap');
 /* font-family: 'Lexend Deca', sans-serif; */
 /* font-family: 'Source Code Prop', sans-serif; */
 /* font-family: 'Squada One', sans-serif; */
+
+@import url('../node_modules/@fortawesome/fontawesome-pro/css/all.min.css');
 :root {
   box-sizing: border-box;               
 }
@@ -12,46 +14,62 @@
   box-sizing: inherit;
 }
 
+body,h1,h2,h3,h4,h5,h6,p {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  background: rgb(255,255,255);
-  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(239,234,255,1) 100%);
+  background: rgb(0,16,91);
+  background: linear-gradient(90deg, rgba(0,16,91,1) 0%, rgba(4,0,97,1) 100%);
+  /* background: #1b004f; */
+  color: white;
   min-height: 100vh;  
   font-family: 'Lexend Deca', sans-serif;
-  font-size: 2rem;
+  /* font-family: 'Oswald', sans-serif; */
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header{
-  color: #4c4c4c;
-  font-family: 'Squada One', sans-serif;
-  display: flex;
-  margin: 1em;
+  padding: 1em;
+  /* box-shadow: 0px 5px 0px rgba(0,0,0,0.75); */
 }
 
-header > h1 {
-  font-size: 5rem;
+header > .header {
+  font-size: 3.5em;
+  font-family: "Anton", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+  /* text-shadow: -5px 5px 0 black; */
+}
+
+header > p {
+  /* font-family: 'Roboto', sans-serif; */
+  font-size: 0.8em;
+  line-height: 1;
 }
 
 .main-container {
-  margin: 1em;
-  border-radius: 5px;
-  box-shadow: 1px 1px 10px rgba(0,0,0,0.75);
+  margin: 2em 1em;
+  /* border-radius: 5px; */
+  /* box-shadow: 1px 1px 10px rgba(0,0,0,0.75); */
 }
 
-.stats {
-  background-color: #8e0e0e;
-  border-radius: 5px 5px 0 0;
-  /* color: #37d397; */
+/* Game Info */
+.stats-container {
   color: white;
   font-family: 'Squada One', sans-serif;
-  font-size: 0.6em;
+  font-size: 1em;
+  margin-bottom: 1em;
   padding: 0.5em;
-
   display: flex;
 }
 
-.stats > div {
-  flex-grow: 1;
-  padding: 0.1em;
+.stats-container > div {
+  min-width: 10em;
 } 
 
 .stat-number {
@@ -59,22 +77,77 @@ header > h1 {
   line-height: 1;
 }
 
-.quote-container {
-  background-color: #1137aa;
-  border-radius: 0 0 5px 5px;
+.star {
+  font-size: 0.5em;
+  padding-left: 0.25em;
+  position:relative;
+  top: -0.30em;
 
-  color: white;
 }
 
-/* Score */
+.rotate-speed-2 {
+  animation: rotation 5s infinite linear;
+}
+.rotate-speed-3 {
+  animation: rotation 4s infinite linear;
+}
+.rotate-speed-4 {
+  animation: rotation 3s infinite linear;
+}
+.rotate-speed-5 {
+  animation: rotation 2s infinite linear;
+}
+.rotate-speed-6 {
+  animation: rotation 1s infinite linear;
+}
 
-/* Quote */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.multiplier {
+  position: absolute;
+  font-size: 0.5em;
+  top: 23%;
+  left: 45%;
+  text-align: center;
+}
+
+/* display-tweet */
+.tweet-container {
+  background-color: white;
+  border-radius: 5px;
+  padding: 2em 2em 3em 2em;
+}
+
+.tweet-header {
+  color: gray;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.twitter-icon {
+  color: #1DA1F2;
+}
+
+.display-tweet {
+  color: #2d2d2d;
+  font-size: 1.5em;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
 .caret {
   color: #37d397;
   font-size: 0.6em;
   position: absolute;
   bottom: -0.9em;
-  left: 50%;
+  left: 45%;
   margin-left: -0.3em;
 
   animation-name: caret-bounce;
@@ -103,17 +176,24 @@ header > h1 {
   opacity: 0.5;
 }
 
-.quote-display {
-  min-height: 400px;
-  padding: 1em;
+/* Tweet Info */
+.tweet-info-container {
+  color: #007bff;
+  display: flex;
+  /* font-family: 'Oswald', sans-serif; */
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-top: 1em;
+}
 
-  flex-grow: 1;
+.tweet-info-container > div {
+  margin-right: 1em;
 }
 
 /* LastTypedKey */
 .blinking-cursor{
   position: absolute;
-  bottom: 0.38em;
+  bottom: 0.6em;
   right: 0;
   animation: 1s blink step-end infinite;
 }
@@ -134,9 +214,12 @@ header > h1 {
   text-align:center;
 }
 
+.typed-keys-container {
+  font-size: 1.5em;
+  margin-top: 2em;
+}
 
-.input-header {
-  font-size: 0.65em;
+.typed-keys-header {
   text-align: center;
 }
 
@@ -148,43 +231,7 @@ header > h1 {
 
 
 /* Animations */
-@keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}
-
-@-moz-keyframes blink {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}
-
-@-webkit-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}
-
-@-ms-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}
-
-@-o-keyframes "blink" {
+@keyframes blink {
   from, to {
     color: transparent;
   }
@@ -194,18 +241,6 @@ header > h1 {
 }
 
 @keyframes caret-bounce {
-  0% {transform: translateY(0);}
-  50% {transform: translateY(0.3em);}
-  100% {transform: translateY(0);}
-}
-
-@-webkit-keyframes caret-bounce {
-  0% {transform: translateY(0);}
-  50% {transform: translateY(0.3em);}
-  100% {transform: translateY(0);}
-}
-
-@-moz-keyframes caret-bounce {
   0% {transform: translateY(0);}
   50% {transform: translateY(0.3em);}
   100% {transform: translateY(0);}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LastTypedKey = props => {
+const TypedKeys = props => {
   const len = props.keyHistory.length;
   let keyHistory = props.keyHistory.map( (char, index) => {
     if(char === ' ') {
@@ -15,11 +15,11 @@ const LastTypedKey = props => {
   } 
 
   return (
-    <section className="input-container">
+    <section className="typed-keys-container">
 
-      <div className="input-header">Last Keys Typed</div>
+      <div className="typed-keys-header"></div>
 
-      <div className="input">
+      <div className="typed-keys">
         <div className="key-history-container">
           <div className="key-history">
             {keyHistory}
@@ -32,4 +32,4 @@ const LastTypedKey = props => {
   );
 }
 
-export default LastTypedKey;
+export default TypedKeys;
