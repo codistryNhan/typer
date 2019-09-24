@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Source+Code+Pro:700|Squada+One|Oswald:700|Roboto|Anton&display=swap');
+
+@import url("https://use.typekit.net/hfi1yzz.css");
 /* font-family: 'Lexend Deca', sans-serif; */
 /* font-family: 'Source Code Prop', sans-serif; */
 /* font-family: 'Squada One', sans-serif; */
+/* font-family: canada-type-gibson, sans-serif; */
 
 @import url('../node_modules/@fortawesome/fontawesome-pro/css/all.min.css');
 :root {
@@ -20,9 +23,10 @@ body,h1,h2,h3,h4,h5,h6,p {
 }
 
 body {
-  background: rgb(0,16,91);
-  background: linear-gradient(90deg, rgba(0,16,91,1) 0%, rgba(4,0,97,1) 100%);
+  /* background: rgb(0,16,91);
+  background: linear-gradient(90deg, rgba(0,16,91,1) 0%, rgba(4,0,97,1) 100%); */
   /* background: #1b004f; */
+  background-image: linear-gradient(90deg, #00105B 50%, #b22d25 50%, #b22d25 100%);
   color: white;
   min-height: 100vh;  
   font-family: 'Lexend Deca', sans-serif;
@@ -33,23 +37,46 @@ body {
 }
 
 header{
+  /* background-color: #B22D25; */
+  /* background: rgb(0,16,91); */
+  background-color:#f7f8ff;
+  /* color: #00105B; */
+  color: #363A94;
   padding: 1em;
-  /* box-shadow: 0px 5px 0px rgba(0,0,0,0.75); */
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.4);
+  font-family: canada-type-gibson, sans-serif;
+  font-weight: 700;
 }
+
+/* .stripes {
+  width: 100%;
+  height: 0.5em;
+  background-image: linear-gradient(45deg, #ffffff 25%, #b22d25 25%, #b22d25 50%, #ffffff 50%, #ffffff 75%, #b22d25 75%, #b22d25 100%);
+background-size: 141.42px 141.42px;
+box-shadow: 0px 5px 0px rgba(0,0,0,0.75);
+} */
 
 header > .header {
-  font-size: 3.5em;
-  font-family: "Anton", sans-serif;
-  font-style: normal;
-  font-weight: 400;
+  font-size: 2.9em;
+  font-family: canada-type-gibson, sans-serif;
+  font-weight: 700;
   margin: 0;
-  /* text-shadow: -5px 5px 0 black; */
 }
 
-header > p {
+header > div > p {
   /* font-family: 'Roboto', sans-serif; */
   font-size: 0.8em;
   line-height: 1;
+  text-align: center;
+}
+
+header > div {
+  display: flex;
+  justify-content: center;
+}
+
+header > div:not(:first-child) {
+  margin-top: 0.5em;
 }
 
 .main-container {
@@ -122,12 +149,12 @@ header > p {
 .tweet-container {
   background-color: white;
   border-radius: 5px;
-  padding: 2em 2em 3em 2em;
+  padding: 1.5em;
 }
 
 .tweet-header {
   color: gray;
-  font-size: 1.2em;
+  font-size: 1em;
   margin-bottom: 0.5em;
 }
 
@@ -147,7 +174,7 @@ header > p {
   font-size: 0.6em;
   position: absolute;
   bottom: -0.9em;
-  left: 45%;
+  left: 40%;
   margin-left: -0.3em;
 
   animation-name: caret-bounce;
@@ -181,8 +208,8 @@ header > p {
   color: #007bff;
   display: flex;
   /* font-family: 'Oswald', sans-serif; */
-  font-size: 1.1em;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 400;
   margin-top: 1em;
 }
 

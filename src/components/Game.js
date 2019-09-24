@@ -115,7 +115,7 @@ class Game extends React.Component {
   }
 
   getTweets = () => {
-    const url = `/api/v1/tweets`;
+    const url = `http://localhost:3001/api/v1/tweets`;
     fetch(url)
     .then( data => data.json())
     .then( data => {
@@ -142,9 +142,19 @@ class Game extends React.Component {
     return (
       <div>
         <header>
-          <h1 className="header">PRESIDENTIAL TYPER</h1>
-          <p>IMPROVE YOUR TYPING AND FOREIGN POLICY SKILLS AT THE SAME TIME</p>
+          <div>
+            <h1 className="header">FREEDOM TYPER</h1> 
+          </div>
+          
+          <div className="twitterTrump-container">
+            <img className="twitterTrump" src="twitterTrump.svg" width="50"/>
+          </div>
+          <div>
+            <p>IMPROVE YOUR TYPING AND FOREIGN POLICY SKILLS AT THE SAME TIME</p>
+          </div>
+          
         </header>
+        <div className="stripes"></div>
         
         <section className="main-container">
 
