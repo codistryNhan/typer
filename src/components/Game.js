@@ -120,7 +120,7 @@ class Game extends React.Component {
   }
 
   getTweets = () => {
-    const url = `http://codistry:3001/api/v1/tweets`;
+    const url = `http://codistry.io:3001/api/v1/tweets`;
     fetch(url)
     .then( data => data.json())
     .then( data => {
