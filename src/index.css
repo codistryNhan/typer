@@ -72,6 +72,7 @@ header > div:not(:first-child) {
 /* Game Info */
 .stats-container {
   background-color: #000623;
+  border-radius: 5px;
   color: white;
   font-family: 'Squada One', sans-serif;
   font-size: 1.5em;
@@ -85,7 +86,6 @@ header > div:not(:first-child) {
 }
 
 .stat-timer-container {
-  border-radius: 5px;
   text-align: center;
 }
 
@@ -158,6 +158,22 @@ header > div:not(:first-child) {
   color: gray;
   font-size: 1em;
   margin-bottom: 0.5em;
+}
+
+.tweet-header-date {
+  margin-top: 0.25em;
+  display: block;
+}
+
+@media (min-width: 550px) {
+  .tweet-header-date::before {
+    content: '\2022\0020';
+  }
+  .tweet-header-date {
+    margin-top: 0;
+    margin-left: 0.4em;
+    display: inline-block;
+  }
 }
 
 .twitter-icon {

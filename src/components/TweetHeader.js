@@ -12,10 +12,11 @@ const TweetHeader = ({tweet}) => {
     <div className="tweet-header">
       <div>
         <span className="twitter-icon"><i className="fab fa-twitter"></i></span> President Trump@theRealDonald 
+        <span className="tweet-header-date">
+          {date}
+        </span>
       </div>
-      <div>
-        {date}
-      </div>
+      
     </div>
   );
 }

@@ -22,7 +22,7 @@ class Score extends React.Component {
     for(let i = 0; i < diff; i++) {
       setTimeout( (prev) => {
         this.setState( prev => ({displayScore: prev.displayScore + 1}));
-      },1000 * i);
+      },100 * i);
     }
 
     this.setState(prev => ({currScore: newScore }));
