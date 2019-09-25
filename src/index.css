@@ -24,8 +24,8 @@ body,h1,h2,h3,h4,h5,h6,p {
 
 body {
   /* background: #00105B; */
-  background: rgb(4,0,111);
-background: radial-gradient(circle, rgba(4,0,111,1) 0%, rgba(0,16,91,1) 100%);
+  background: rgb(5,0,138);
+background: radial-gradient(circle, rgba(5,0,138,1) 0%, rgba(0,16,91,1) 100%);
   color: white;
   min-height: 100vh;  
   font-family: 'Lexend Deca', sans-serif;
