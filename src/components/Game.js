@@ -184,6 +184,9 @@ class Game extends React.Component {
         </header>
         
         <section className="main-container">
+          <div class="progress">
+            <span>Game is still a work in progress</span>
+          </div>
 
           <div className="stats-container">
             <div>
