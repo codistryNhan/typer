@@ -83,11 +83,20 @@ header > div:not(:first-child) {
 }
 
 .stat-timer-container {
+  border-radius: 5px;
   text-align: center;
 }
 
 .stat-timer {
   font-size: 2em;
+}
+
+.stat-multiplier {
+  position:relative;
+}
+
+.stat-number {
+  text-align: center;
 }
 
 .stat {
@@ -102,8 +111,9 @@ header > div:not(:first-child) {
   color: #ffe628;
   font-size: 0.5em;
   padding-left: 0.25em;
-  position:relative;
-  top: -0.30em;
+  position:absolute;
+  top: 0.6em;
+  left: 1em;
 }
 
 .rotate-speed-1 {

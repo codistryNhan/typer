@@ -175,7 +175,7 @@ class Game extends React.Component {
           </div>
           
           <div className="twitterTrump-container">
-            <img className="twitterTrump" src="twitterTrump.svg" width="50"/>
+            <img alt="logo" className="twitterTrump" src="twitterTrump.svg" width="50"/>
           </div>
           <div>
             <p>IMPROVE YOUR TYPING AND FOREIGN POLICY SKILLS AT THE SAME TIME</p>
