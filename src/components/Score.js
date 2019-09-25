@@ -22,7 +22,7 @@ class Score extends React.Component {
     for(let i = 0; i < diff; i++) {
       setTimeout( (prev) => {
         this.setState( prev => ({displayScore: prev.displayScore + 1}));
-      },25 * i);
+      },1000 * i);
     }
 
     this.setState(prev => ({currScore: newScore }));
@@ -30,13 +30,13 @@ class Score extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="stat">
         <div>
           SCORE
         </div>
-        <span className="stat-number">
+        <div className="stat-number">
           {this.state.displayScore}
-        </span>
+        </div>
       </div>
     );
   }

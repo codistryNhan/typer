@@ -23,24 +23,17 @@ body,h1,h2,h3,h4,h5,h6,p {
 }
 
 body {
-  /* background: rgb(0,16,91);
-  background: linear-gradient(90deg, rgba(0,16,91,1) 0%, rgba(4,0,97,1) 100%); */
-  /* background: #1b004f; */
-  background-image: linear-gradient(90deg, #00105B 50%, #b22d25 50%, #b22d25 100%);
+  background: #00105B;
   color: white;
   min-height: 100vh;  
   font-family: 'Lexend Deca', sans-serif;
-  /* font-family: 'Oswald', sans-serif; */
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 header{
-  /* background-color: #B22D25; */
-  /* background: rgb(0,16,91); */
   background-color:#f7f8ff;
-  /* color: #00105B; */
   color: #363A94;
   padding: 1em;
   box-shadow: 0px 3px 2px rgba(0,0,0,0.4);
@@ -48,23 +41,14 @@ header{
   font-weight: 700;
 }
 
-/* .stripes {
-  width: 100%;
-  height: 0.5em;
-  background-image: linear-gradient(45deg, #ffffff 25%, #b22d25 25%, #b22d25 50%, #ffffff 50%, #ffffff 75%, #b22d25 75%, #b22d25 100%);
-background-size: 141.42px 141.42px;
-box-shadow: 0px 5px 0px rgba(0,0,0,0.75);
-} */
-
 header > .header {
-  font-size: 2.9em;
+  font-size: 2em;
   font-family: canada-type-gibson, sans-serif;
   font-weight: 700;
   margin: 0;
 }
 
 header > div > p {
-  /* font-family: 'Roboto', sans-serif; */
   font-size: 0.8em;
   line-height: 1;
   text-align: center;
@@ -80,61 +64,67 @@ header > div:not(:first-child) {
 }
 
 .main-container {
-  margin: 2em 1em;
-  /* border-radius: 5px; */
-  /* box-shadow: 1px 1px 10px rgba(0,0,0,0.75); */
+  margin: 1em;
 }
 
 /* Game Info */
 .stats-container {
+  background-color: #000623;
   color: white;
   font-family: 'Squada One', sans-serif;
-  font-size: 1em;
-  margin-bottom: 1em;
-  padding: 0.5em;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  padding: 0.25em 0.5em;
   display: flex;
 }
 
 .stats-container > div {
-  min-width: 10em;
-} 
+  width: 100%;
+}
 
-.stat-number {
-  font-size: 3em;
-  line-height: 1;
+.stat-timer-container {
+  text-align: center;
+}
+
+.stat-timer {
+  font-size: 2em;
+}
+
+.stat {
+  display: flex;
+}
+
+.stat > div {
+  width: 100%;
 }
 
 .star {
+  color: #ffe628;
   font-size: 0.5em;
   padding-left: 0.25em;
   position:relative;
   top: -0.30em;
+}
 
+.rotate-speed-1 {
+  animation: rotation 4s infinite linear;
 }
 
 .rotate-speed-2 {
-  animation: rotation 4s infinite linear;
-}
-.rotate-speed-3 {
   animation: rotation 3s infinite linear;
 }
-.rotate-speed-4 {
+.rotate-speed-3 {
   animation: rotation 2s infinite linear;
 }
-.rotate-speed-5 {
+.rotate-speed-4 {
   animation: rotation 1s infinite linear;
 }
-.rotate-speed-6 {
+.rotate-speed-5 {
   animation: rotation 0.5s infinite linear;
 }
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+.rotate-speed-6 {
+  animation: rotation 0.3s infinite linear;
+  
 }
 
 .multiplier {
@@ -177,9 +167,17 @@ header > div:not(:first-child) {
   left: 40%;
   margin-left: -0.3em;
 
-  animation-name: caret-bounce;
-  animation-duration: 0.3s;
-  animation-iteration-count: infinite;
+  animation: caret-bounce 0.3s infinite;
+}
+
+.caret-error {
+  font-size: 0.6em;
+  position: absolute;
+  bottom: -0.9em;
+  left: 40%;
+  margin-left: -0.3em;
+
+  animation: 0.1s 3 caret-error ,  0.3s 1 caret-error-color,  0.3s 0.4s infinite caret-bounce;
 }
 
 .caret-space {
@@ -187,11 +185,18 @@ header > div:not(:first-child) {
   font-size: 0.5em;
   position: absolute;
   bottom: -0.8em;
+  left: 0.25em;
+
+  animation: caret-bounce 0.3s infinite;
+}
+
+.caret-space-error {
+  font-size: 0.5em;
+  position: absolute;
+  bottom: -0.8em;
   left: 0.3em;
 
-  animation-name: caret-bounce;
-  animation-duration: 0.3s;
-  animation-iteration-count: infinite;
+  animation: 0.1s 3 caret-error ,  0.3s 1 caret-error-color,  0.3s 0.4s infinite caret-bounce;
 }
 
 .char {
@@ -271,4 +276,30 @@ header > div:not(:first-child) {
   0% {transform: translateY(0);}
   50% {transform: translateY(0.3em);}
   100% {transform: translateY(0);}
+}
+
+@keyframes caret-error {
+  0% {transform: translateX(0.3em);}
+  50% {transform: translateX(-0.3em);}
+  100% {transform: translateX(0.3em);}
+}
+
+@keyframes caret-error-color {
+  100% { color: #ff0033;}
+}
+
+
+
+@keyframes colorchange {
+  0% { color: white;}
+  100% { color: #f9e31b;}
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }

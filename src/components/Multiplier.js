@@ -8,14 +8,14 @@ const Multiplier = ({multiplier}) => {
   const star = <i className={starClass}></i>;
 
   return (
-    <div>
+    <div className="stat">
       <div>
         MULTIPLIER 
       </div>
-      <span className="stat-number">
+      <div className="stat-number">
         {multiplier}
         <span className="star">{star}</span>
-      </span>
+      </div>
     </div>
   );
 };

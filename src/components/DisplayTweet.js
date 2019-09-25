@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DisplayTweet = ({ tweet, currentIndex }) => {
+const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey }) => {
   const quote = tweet.split('').map( (char, index) => {
     
     //if at the current char
@@ -13,7 +13,7 @@ const DisplayTweet = ({ tweet, currentIndex }) => {
         return (
           <>
           <span className="char">
-            <span className="caret-space"><i className="fas fa-lg fa-caret-up"></i></span>
+            <span className={incorrectKey ? "caret-space caret-space-error" : "caret-space"}><i className="fas fa-lg fa-caret-up"></i></span>
             <span key={index+100}>{'\xa0'}</span>
           </span>
           <span> </span>
@@ -22,7 +22,9 @@ const DisplayTweet = ({ tweet, currentIndex }) => {
       } else {
         return (
           <span className="char">
-            <span className="caret"><i className="fas fa-lg fa-caret-up"></i></span>
+            <span className={incorrectKey ? "caret caret-error" : "caret"}>
+              <i className="fas fa-lg fa-caret-up"></i>
+            </span>
             <span className="char-enlarge">{char}</span>
           </span>
         );
@@ -44,9 +46,12 @@ const DisplayTweet = ({ tweet, currentIndex }) => {
   });
 
   return (
+    <>
     <section className="display-tweet">
       {quote}
     </section>
+      {incorrectKey ? resetIncorrectKey() : null}
+    </>
   );
 };
 

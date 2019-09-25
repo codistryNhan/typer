@@ -2,13 +2,13 @@ import React from 'react';
 
 const Combo = props => {
   return (
-    <div>
+    <div className="stat">
       <div>
         COMBO
       </div>
-      <span className="stat-number">
+      <div className="stat-number">
         {props.combo}
-      </span>
+      </div>
     </div>
   );
 }

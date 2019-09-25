@@ -1,29 +1,32 @@
 import React from 'react';
 import Combo from './Combo';
+import DisplayTweet from './DisplayTweet';
+import Multiplier from './Multiplier';
 import Score from './Score';
+import Timer from './Timer';
 import TweetHeader from './TweetHeader';
 import TweetInfo from './TweetInfo';
-import DisplayTweet from './DisplayTweet';
 import TypedKeys from './TypedKeys';
-import Multiplier from './Multiplier';
 
 class Game extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      tweet: 'I am a tweet',
+      combo: 0,
       currentKey: '',
       currentIndex: 0,
       currentTweetIndex: 0,
-      multiplier: 1,
-      combo: 0,
-      points: 0,
       keyHistory: [],
+      incorrectKey: false,
+      multiplier: 1,
+      points: 0,
+      timesUp: false,
+      tweet: 'I am a tweet',
       tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
     }
-
     this.getTweets();
+    this.timerStart(30);
   }
 
   componentDidMount() {
@@ -72,19 +75,21 @@ class Game extends React.Component {
       if (currentVal === this.state.tweet[this.state.currentIndex]) {
 
         this.setState( prev => {
-          let points = prev.multiplier * 10;
+          let points = prev.multiplier * 1;
           console.log(points);
           return { 
             currentIndex: prev.currentIndex + 1,
             combo: prev.combo + 1,
-            points: prev.points + points
+            points: prev.points + points,
+            incorrectKey: false
           };
         });
 
       } else {
         this.setState( prev => ({ 
           combo: 0,
-          multiplier: 1
+          multiplier: 1,
+          incorrectKey: true
         }));
       }
       
@@ -115,7 +120,7 @@ class Game extends React.Component {
   }
 
   getTweets = () => {
-    const url = `/api/v1/tweets`;
+    const url = `http://localhost:3001/api/v1/tweets`;
     fetch(url)
     .then( data => data.json())
     .then( data => {
@@ -136,6 +141,29 @@ class Game extends React.Component {
       currentTweetIndex: nextTweetIndex,
       currentIndex: 0,
     }));
+  }
+
+  timerStart = (seconds) => {
+    this.setState({timer: seconds});
+
+    let countDown = setInterval(() => {
+      seconds--;
+      this.setState({timer: seconds});
+
+      if(seconds === 0) {
+        clearInterval(countDown);
+      }
+    },1000);
+  }
+
+  resetIncorrectKey = () => {
+    if(this.state.incorrectKey) {
+      setTimeout(() => {
+        this.setState( () => ({
+          incorrectKey: false
+        }))
+      }, 300); 
+    }
   }
 
   render() {
@@ -159,9 +187,13 @@ class Game extends React.Component {
         <section className="main-container">
 
           <div className="stats-container">
-            <Score score={this.state.points} />
-            <Combo combo={this.state.combo} />
-            <Multiplier multiplier={this.state.multiplier} />
+            <div>
+              <Score score={this.state.points} />
+              <Combo combo={this.state.combo} />
+              <Multiplier multiplier={this.state.multiplier} />
+              
+            </div>
+            <Timer timer={this.state.timer} />
           </div>
 
           <div className="tweet-container">
@@ -169,6 +201,8 @@ class Game extends React.Component {
             <DisplayTweet 
               tweet={this.state.tweet} 
               currentIndex={this.state.currentIndex}
+              incorrectKey={this.state.incorrectKey}
+              resetIncorrectKey={this.resetIncorrectKey}
             />
             <TweetInfo 
             tweet={this.state.tweets[this.state.currentTweetIndex]} 
