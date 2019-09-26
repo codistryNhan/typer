@@ -34,10 +34,10 @@ class Game extends React.Component {
   componentDidMount() {
     this.focusInput();
 
-    window.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      this.focusInput();
-    });
+    // window.addEventListener('touchstart', (e) => {
+    //   e.preventDefault();
+    //   this.focusInput();
+    // });
 
     window.addEventListener('onfocus', (e) => {
       e.preventDefault();
