@@ -27,7 +27,6 @@ class Game extends React.Component {
     }
     this.getTweets();
     this.timerStart(30);
-    this.keyInput = React.createRef();
     this.mainRef = React.createRef();
     
   }
@@ -58,7 +57,7 @@ class Game extends React.Component {
   }
 
   focusInput = () => {
-    this.keyInput.current.focus();
+    this.keyInputRef.focus();
   }
 
   handleOnChange = e => {
@@ -223,6 +222,8 @@ class Game extends React.Component {
               currentIndex={this.state.currentIndex}
               incorrectKey={this.state.incorrectKey}
               resetIncorrectKey={this.resetIncorrectKey}
+              inputRef={el => this.keyInputRef = el}
+              handleOnChange={this.handleOnChange}
             />
             <TweetInfo 
             tweet={this.state.tweets[this.state.currentTweetIndex]} 
@@ -233,9 +234,6 @@ class Game extends React.Component {
             keyHistory={this.state.keyHistory} 
             currentKey={this.state.currentKey} 
           />
-          <div clasName="key-input-container">
-            <input className="key-input" type="text" ref={this.keyInput} onKeyDown={this.handleOnChange} />
-          </div>
                 
         </section>
       </div>

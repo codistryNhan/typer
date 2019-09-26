@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey }) => {
+const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey, inputRef, handleOnChange }) => {
   const quote = tweet.split('').map( (char, index) => {
     
     //if at the current char
@@ -49,6 +49,9 @@ const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey }) 
     <>
     <section className="display-tweet">
       {quote}
+      <div className="key-input-container">
+        <input className="key-input" type="text" ref={inputRef} onKeyDown={handleOnChange} />
+      </div>
     </section>
       {incorrectKey ? resetIncorrectKey() : null}
     </>

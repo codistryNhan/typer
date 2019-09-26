@@ -65,7 +65,12 @@ header > div:not(:first-child) {
 }
 
 .key-input-container {
-  display: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top:40%;
+  left: 40%;
 }
 
 .key-input {
@@ -175,6 +180,8 @@ header > div:not(:first-child) {
   background-color: white;
   border-radius: 5px;
   padding: 1.5em;
+
+  position:relative;
 }
 
 .tweet-header {
