@@ -28,6 +28,7 @@ class Game extends React.Component {
     this.getTweets();
     this.timerStart(30);
     this.keyInput = React.createRef();
+    this.mainRef = React.createRef();
     
   }
 
@@ -35,7 +36,11 @@ class Game extends React.Component {
     window.addEventListener('onfocus', () => {
       this.focusInput();
     });
-    
+
+    this.mainRef.current.addEventListener('click', () => {
+      this.focusInput();
+    });
+
     this.focusInput();
   }
 
@@ -189,7 +194,7 @@ class Game extends React.Component {
           
         </header>
         
-        <section className="main-container">
+        <section className="main-container" ref={this.mainRef}>
           <div class="progress">
             <span>Game is still a work in progress</span>
           </div>
@@ -223,11 +228,10 @@ class Game extends React.Component {
             currentKey={this.state.currentKey} 
           />
                 
+          <div clasName="key-input-container">
+            <input className="key-input" type="text" ref={this.keyInput} onKeyDown={this.handleOnChange} />
+          </div>
         </section>
-
-        <div clasName="key-input-container">
-          <input className="key-input" type="text" ref={this.keyInput} onKeyDown={this.handleOnChange} />
-        </div>
       </div>
     );
   }
