@@ -39,11 +39,11 @@ class Game extends React.Component {
       this.focusInput();
     });
 
-    this.mainRef.current.addEventListener('click', (e) => {
-      e.preventDefault();
+    // this.mainRef.current.addEventListener('click', (e) => {
+    //   e.preventDefault();
 
-      this.focusInput();
-    });
+    //   this.focusInput();
+    // });
   }
 
   componentDidUpdate() {
@@ -224,15 +224,14 @@ class Game extends React.Component {
             />
 
           </div>
-
+          <div clasName="key-input-container">
+            <input className="key-input" type="text" ref={this.keyInput} onKeyDown={this.handleOnChange} />
+          </div>
           <TypedKeys 
             keyHistory={this.state.keyHistory} 
             currentKey={this.state.currentKey} 
           />
                 
-          <div clasName="key-input-container">
-            <input className="key-input" type="text" ref={this.keyInput} onKeyDown={this.handleOnChange} />
-          </div>
         </section>
       </div>
     );
