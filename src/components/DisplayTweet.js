@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey, inputRef, handleOnChange }) => {
+const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey, inputRef, handleOnChange, pointsToAdd }) => {
   const quote = tweet.split('').map( (char, index) => {
     
     //if at the current char
@@ -30,16 +30,25 @@ const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey, in
         );
       }
     } else {
+      const addPoints = <span className="points-to-add">+{pointsToAdd}pts</span>
+      const isLast = (index === currentIndex - 1);
+
       if(char === ' ') {
         return (
           <span className="char">
             <span key={index+100}>{'\xa0'}</span>
+            { isLast ? addPoints : null}
             <span> </span>
           </span>
         ); 
       } else {
         return(
-          <span className={currentIndex > index ? "char char-correct" : "char" }>{char}</span>
+          <>
+          <span className="char">
+            <span className={currentIndex > index ? "char-correct" : null }>{char}</span>
+            { isLast ? addPoints : null}
+          </span>
+          </>
         );
       }
     }

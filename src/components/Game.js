@@ -21,6 +21,7 @@ class Game extends React.Component {
       incorrectKey: false,
       multiplier: 1,
       points: 0,
+      pointsToAdd: 0,
       timesUp: false,
       tweet: 'I am a tweet',
       tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
@@ -33,11 +34,6 @@ class Game extends React.Component {
 
   componentDidMount() {
     this.focusInput();
-
-    // window.addEventListener('touchstart', (e) => {
-    //   e.preventDefault();
-    //   this.focusInput();
-    // });
 
     window.addEventListener('onfocus', (e) => {
       e.preventDefault();
@@ -100,6 +96,7 @@ class Game extends React.Component {
             currentIndex: prev.currentIndex + 1,
             combo: prev.combo + 1,
             points: prev.points + points,
+            pointsToAdd: points,
             incorrectKey: false
           };
         });
@@ -224,6 +221,7 @@ class Game extends React.Component {
               resetIncorrectKey={this.resetIncorrectKey}
               inputRef={el => this.keyInputRef = el}
               handleOnChange={this.handleOnChange}
+              pointsToAdd={this.state.pointsToAdd}
             />
             <TweetInfo 
             tweet={this.state.tweets[this.state.currentTweetIndex]} 

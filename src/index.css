@@ -266,6 +266,18 @@ header > div:not(:first-child) {
   opacity: 0.5;
 }
 
+.points-to-add {
+  font-family: 'Squada One', sans-serif;
+  font-size: 0.8em;
+  position: absolute;
+  color: #33bf87;
+  top: -0.8em;
+  left: 0;
+  opacity: 0;
+
+  animation: 1s 1 addPoints-move, 1s 1 addPoints-fade;
+}
+
 /* Tweet Info */
 .tweet-info-container {
   color: #007bff;
@@ -351,6 +363,16 @@ header > div:not(:first-child) {
 @keyframes colorchange {
   0% { color: white;}
   100% { color: #f9e31b;}
+}
+
+@keyframes addPoints-move {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-0.3em);}
+}
+
+@keyframes addPoints-fade {
+  0% { opacity: 1;}
+  100% { opacity: 0;}
 }
 
 @keyframes rotation {
