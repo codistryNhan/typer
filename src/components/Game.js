@@ -33,15 +33,17 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
+    this.focusInput();
+
     window.addEventListener('onfocus', () => {
       this.focusInput();
     });
 
-    this.mainRef.current.addEventListener('click', () => {
+    this.mainRef.current.addEventListener('click', (e) => {
+      e.preventDefault();
+
       this.focusInput();
     });
-
-    this.focusInput();
   }
 
   componentDidUpdate() {
