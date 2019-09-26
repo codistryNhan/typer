@@ -275,14 +275,14 @@ header > div:not(:first-child) {
 /* LastTypedKey */
 .blinking-cursor{
   position: absolute;
-  bottom: 0.6em;
+  bottom: 0.3em;
   right: 0;
   animation: 1s blink step-end infinite;
 }
 
 .key-history-container {
   width: 50.5%;
-  height: 2em;
+  height: 1.75em;
 
   display:flex;
   justify-content: flex-end;
@@ -298,7 +298,7 @@ header > div:not(:first-child) {
 
 .typed-keys-container {
   font-size: 1.5em;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 .typed-keys-header {
