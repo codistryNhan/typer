@@ -27,18 +27,26 @@ class Game extends React.Component {
     }
     this.getTweets();
     this.timerStart(30);
+    this.keyInput = React.createRef();
+    
   }
 
   componentDidMount() {
-    window.addEventListener('keydown', e => {
-      this.handleOnChange(e);
+    window.addEventListener('onfocus', () => {
+      this.focusInput();
     });
+    
+    this.focusInput();
   }
 
   componentDidUpdate() {
     if(this.state.currentIndex === this.state.tweet.length - 1) {
       this.nextTweet();
     }
+  }
+
+  focusInput = () => {
+    this.keyInput.current.focus();
   }
 
   handleOnChange = e => {
@@ -170,15 +178,13 @@ class Game extends React.Component {
     return (
       <div>
         <header>
+
+          <div className="twitterTrump-container">
+            <img alt="logo" className="logo" src="twitterTrump.svg" width="2em"/>
+          </div>
+
           <div>
             <h1 className="header">FREEDOM TYPER</h1> 
-          </div>
-          
-          <div className="twitterTrump-container">
-            <img alt="logo" className="twitterTrump" src="twitterTrump.svg" width="35"/>
-          </div>
-          <div>
-            <p>IMPROVE YOUR TYPING AND FOREIGN POLICY SKILLS AT THE SAME TIME</p>
           </div>
           
         </header>
@@ -218,6 +224,10 @@ class Game extends React.Component {
           />
                 
         </section>
+
+        <div clasName="key-input-container">
+          <input className="key-input" type="text" ref={this.keyInput} onKeyDown={this.handleOnChange} />
+        </div>
       </div>
     );
   }
