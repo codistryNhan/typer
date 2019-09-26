@@ -45,11 +45,10 @@ class Game extends React.Component {
       this.focusInput();
     });
 
-    // this.mainRef.current.addEventListener('click', (e) => {
-    //   e.preventDefault();
-
-    //   this.focusInput();
-    // });
+    this.mainRef.current.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.focusInput();
+    });
   }
 
   componentDidUpdate() {
