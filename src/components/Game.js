@@ -181,6 +181,7 @@ class Game extends React.Component {
 
   render() {
     return (
+      <>
       <div>
         <header>
 
@@ -257,7 +258,11 @@ class Game extends React.Component {
             </div> 
           </div>
         </section>
+
+        
       </div>
+      
+          </>
     );
   }
 }
