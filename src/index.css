@@ -35,6 +35,7 @@ body {
   color: white; 
   font-family: 'Lexend Deca', sans-serif;
   font-size: 16px;
+  margin-bottom: 200px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -116,7 +117,8 @@ header > div:not(:first-child) {
 }
 
 .main-container {
-  margin: 1em;
+  margin: 1em auto;
+  max-width: 550px;
 }
 
 .info-instructions {
@@ -160,15 +162,6 @@ header > div:not(:first-child) {
   position:relative;
 }
 
-/* .star {
-  color: #ffe628;
-  font-size: 0.5em;
-  padding-left: 0.25em;
-  position:absolute;
-  top: 0.6em;
-  left: 1em;
-} */
-
 .rotate-speed-1 {
   animation: rotation 4s infinite linear;
 }
@@ -204,6 +197,7 @@ header > div:not(:first-child) {
   font-family: 'Squada One', sans-serif;
   font-size: 2em;
 }
+
 
 .multiplier-header {
   display: flex;
