@@ -27,7 +27,7 @@ class Game extends React.Component {
       tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
     }
     this.getTweets();
-    this.timerStart(30);
+    this.timerStart(60);
     this.mainRef = React.createRef();
     
   }
@@ -66,20 +66,17 @@ class Game extends React.Component {
 
     //Add multipliers for higher combos
     switch(this.state.combo) {
-      case 5:
+      case 10:
         this.setMultiplier(2);
         break;
-      case 10:
+      case 30:
         this.setMultiplier(3);
         break;
-      case 25:
+      case 40:
         this.setMultiplier(4);
         break;
-      case 50:
-        this.setMultiplier(5);
-        break;
       case 100:
-        this.setMultiplier(6); 
+        this.setMultiplier(5);
         break;
       default:
     }
@@ -198,22 +195,20 @@ class Game extends React.Component {
         </header>
         
         <section className="main-container" ref={this.mainRef}>
-          <div class="progress">
-            <span>Game is still a work in progress</span>
+          
+
+          <div className="info-instructions">
+            <p>Type out the President's tweets before the time runs out!</p>
           </div>
 
           <div className="stats-container">
-            <div>
-              <Score score={this.state.points} />
-              <Combo combo={this.state.combo} />
-              <Multiplier multiplier={this.state.multiplier} />
-              
-            </div>
+            <Score score={this.state.points} />
             <Timer timer={this.state.timer} />
           </div>
 
           <div className="tweet-container">
             <TweetHeader tweet={this.state.tweets[this.state.currentTweetIndex]} />
+
             <DisplayTweet 
               tweet={this.state.tweet} 
               currentIndex={this.state.currentIndex}
@@ -223,16 +218,44 @@ class Game extends React.Component {
               handleOnChange={this.handleOnChange}
               pointsToAdd={this.state.pointsToAdd}
             />
+
             <TweetInfo 
-            tweet={this.state.tweets[this.state.currentTweetIndex]} 
+              tweet={this.state.tweets[this.state.currentTweetIndex]} 
             />
 
+            <Multiplier multiplier={this.state.multiplier} />
+
           </div>
+
           <TypedKeys 
             keyHistory={this.state.keyHistory} 
             currentKey={this.state.currentKey} 
           />
-                
+
+          <div className="info">
+            <p className="center">Earn combos by typing correctly without making a mistake</p>
+            <table className="combo-table">
+              <tr>
+                <td>Combos</td>
+                <td>10</td>
+                <td>30</td>
+                <td>50</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Points Multiplier</td>
+                <td>2X</td>
+                <td>3X</td>
+                <td>4X</td>
+                <td>5X</td>
+              </tr>
+            </table>
+
+            <div className="progress">
+              <p className="center">Game is still a work in progress</p>
+              <p>I apologize if things don't makes sense or feels weird.</p>
+            </div> 
+          </div>
         </section>
       </div>
     );

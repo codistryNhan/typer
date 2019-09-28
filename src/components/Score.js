@@ -29,13 +29,15 @@ class Score extends React.Component {
   }
 
   render() {
+    const score = String(this.state.displayScore).padStart(4, '0');
+
     return (
-      <div className="stat">
-        <div>
+      <div className="stat-element-container">
+        <div className="stat-element-header">
           SCORE
         </div>
-        <div className="stat-number">
-          {this.state.displayScore}
+        <div className="stat-element-body">
+          {score}
         </div>
       </div>
     );
