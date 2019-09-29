@@ -21,54 +21,67 @@ body,h1,h2,h3,h4,h5,h6,p,ul,li {
   margin: 0;
 }
 
-#root, body, html {
+#root, #root > div, body, html {
   height: 100%;
 }
 
 
 body {
-  /* background: rgb(61,47,205);
-  background: linear-gradient(180deg, rgba(61,47,205,1) 0%, rgba(31,37,181,1) 76%, rgba(0,27,156,1) 100%); */
-  /* background: rgb(24,19,154);
-  background: linear-gradient(180deg, rgba(24,19,154,0.9) 0%, rgba(11,16,101,0.9) 100%); */
-  background: #002E9E;
+  /* background:rgba(31, 17, 160, 0.9); */
+  /* background:rgba(7, 29, 153, 0.9); */
+  background: rgb(33,55,175);
+background: linear-gradient(180deg, rgba(33,55,175,1) 0%, rgba(22,36,113,1) 100%);
   color: white; 
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Lexend Deca';
   font-size: 16px;
-  margin-bottom: 200px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  
 }
 
 header{
-  /* background-color:#f7f8ff; */
-  background-color: rgba(255,255,255, 0.95);
-  box-shadow: 0px 5px 5px rgba(0,0,0,0.3);
-  color: #363A94;
   font-family: canada-type-gibson, sans-serif;
-  font-weight: 700;
-  padding: 0.5em; 
-}
-
-.header {
-  font-size: 1.5em;
-  font-weight: 700;
-  margin: 0;
-}
-
-header > div > p {
-  font-size: 0.8em;
-  line-height: 1;
+  padding: 0.5em 0; 
   text-align: center;
 }
 
-header > div {
-  display: flex;
-  justify-content: center;
+.header {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0.5em 0 0 0;
 }
 
-header > div:not(:first-child) {
+.logo {
+  width: 1.6rem;
   margin-top: 0.5em;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgb(33,55,175);
+  background: linear-gradient(180deg, rgba(33,55,175,1) 0%, rgba(22,36,113,1) 100%);
+}
+
+.loading > div {
+  animation: heart-beat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  text-align: center;
+}
+
+.loadingLogo {
+  width: 4rem;
 }
 
 .key-input-container {
@@ -85,12 +98,7 @@ header > div:not(:first-child) {
   font-size: 16px;
 }
 
-.logo {
-  width: 2em;
-}
-
 .info {
-  background: #001D60;
   padding: 1em;
 }
 
@@ -117,7 +125,7 @@ header > div:not(:first-child) {
 }
 
 .main-container {
-  margin: 1em auto;
+  height: 100%;
   max-width: 550px;
 }
 
@@ -132,12 +140,9 @@ header > div:not(:first-child) {
 
 /* Stats */
 .stats-container {
-  /* background-color: rgba(0, 6, 35, 0.7); */
-  background: #001d60;
   color: white;
   font-family: 'Squada One', sans-serif;
   font-size: 1.5em;
-  margin-bottom: 0.5em;
   padding: 0.5em 0.5em;
   display: flex;
 }
@@ -215,14 +220,11 @@ header > div:not(:first-child) {
 
 /* display-tweet */
 .tweet-container {
-  background-color: rgb(255,255,255);
   padding: 1.5em;
-
   position:relative;
 }
 
 .tweet-header {
-  color: gray;
   font-size: 1em;
   margin-bottom: 0.5em;
 }
@@ -248,7 +250,6 @@ header > div:not(:first-child) {
 }
 
 .display-tweet {
-  color: #2d2d2d;
   font-size: 1.3em;
   line-height: 1.4;
   letter-spacing: 0;
@@ -424,4 +425,25 @@ header > div:not(:first-child) {
 @keyframes arrow-up {
   0% { transform: translateY(0);}
   100% { transform: translateY(-0.3em);}
+}
+
+@keyframes heart-beat {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Combo from './Combo';
 import DisplayTweet from './DisplayTweet';
+import Loading from './Loading';
 import Multiplier from './Multiplier';
 import Score from './Score';
 import Timer from './Timer';
@@ -19,6 +20,7 @@ class Game extends React.Component {
       currentTweetIndex: 0,
       keyHistory: [],
       incorrectKey: false,
+      isLoading: true,
       multiplier: 1,
       points: 0,
       pointsToAdd: 0,
@@ -142,6 +144,9 @@ class Game extends React.Component {
         tweets: data
       });
     })
+    .then( () => {
+      this.setState({isLoading: false});
+    })
     .catch( err => console.log(err));
   }
 
@@ -181,26 +186,17 @@ class Game extends React.Component {
 
   render() {
     return (
-      <>
       <div>
+        {this.state.isLoading && <Loading />}
         <header>
-
-          <div className="twitterTrump-container">
-            <img alt="logo" className="logo" src="twitterTrump.svg" width="2em"/>
-          </div>
-
           <div>
-            <h1 className="header">FREEDOM TYPER</h1> 
+            <p className="header">FREEDOM TYPER</p>
+            <img className="logo" alt="logo" src="/logoTyper.svg" /> 
           </div>
           
         </header>
         
         <section className="main-container" ref={this.mainRef}>
-          
-
-          <div className="info-instructions">
-            <p>Type out the President's tweets before the time runs out!</p>
-          </div>
 
           <div className="stats-container">
             <Score score={this.state.points} />
@@ -234,7 +230,7 @@ class Game extends React.Component {
           />
 
           <div className="info">
-            <p className="center">Earn combos by typing correctly without making a mistake</p>
+            <p className="center">Earn combos by typing correctly without making mistakes!</p>
             <table className="combo-table">
               <tr>
                 <td>Combos</td>
@@ -257,12 +253,8 @@ class Game extends React.Component {
               <p>I apologize if things don't makes sense or feels weird.</p>
             </div> 
           </div>
-        </section>
-
-        
+        </section>  
       </div>
-      
-          </>
     );
   }
 }
