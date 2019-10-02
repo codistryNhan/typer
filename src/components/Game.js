@@ -2,7 +2,8 @@ import React from 'react';
 import Combo from './Combo';
 import DisplayTweet from './DisplayTweet';
 import Loading from './Loading';
-import Multiplier from './Multiplier';
+import MultiplierPopUp from './MultiplierPopUp';
+import MultiplierStars from './MultiplierStars';
 import Score from './Score';
 import Timer from './Timer';
 import TweetHeader from './TweetHeader';
@@ -24,6 +25,7 @@ class Game extends React.Component {
       multiplier: 1,
       points: 0,
       pointsToAdd: 0,
+      timer: 60,
       timesUp: false,
       tweet: 'I am a tweet',
       tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
@@ -104,6 +106,7 @@ class Game extends React.Component {
         this.setState( prev => ({ 
           combo: 0,
           multiplier: 1,
+          multiplierIncreased: false,
           incorrectKey: true
         }));
       }
@@ -115,7 +118,7 @@ class Game extends React.Component {
 
   setMultiplier = num => {
     this.setState( () => ({
-      multiplier: num
+      multiplier: num,
     }));
   }
 
@@ -186,25 +189,26 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div>
+      <div ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
         <header>
           <div>
             <p className="header">FREEDOM TYPER</p>
             <img className="logo" alt="logo" src="/logoTyper.svg" /> 
           </div>
-          
         </header>
         
-        <section className="main-container" ref={this.mainRef}>
+        <div className="stats-container desktop-resolution">
+          <Timer timer={this.state.timer} />
+          <MultiplierStars multiplier={this.state.multiplier} />
+          <Score score={this.state.points} />
+        </div>
 
-          <div className="stats-container">
-            <Score score={this.state.points} />
-            <Timer timer={this.state.timer} />
-          </div>
-
-          <div className="tweet-container">
-            <TweetHeader tweet={this.state.tweets[this.state.currentTweetIndex]} />
+        <div className="tweet-container">
+          <div className="desktop-resolution">
+            <TweetInfo 
+              tweet={this.state.tweets[this.state.currentTweetIndex]} 
+            />
 
             <DisplayTweet 
               tweet={this.state.tweet} 
@@ -216,44 +220,40 @@ class Game extends React.Component {
               pointsToAdd={this.state.pointsToAdd}
             />
 
-            <TweetInfo 
-              tweet={this.state.tweets[this.state.currentTweetIndex]} 
-            />
-
-            <Multiplier multiplier={this.state.multiplier} />
-
+            <MultiplierPopUp multiplier={this.state.multiplier}/>
           </div>
+        </div>
 
-          <TypedKeys 
-            keyHistory={this.state.keyHistory} 
-            currentKey={this.state.currentKey} 
-          />
+        <TypedKeys 
+          keyHistory={this.state.keyHistory} 
+          currentKey={this.state.currentKey} 
+        />
 
-          <div className="info">
-            <p className="center">Earn combos by typing correctly without making mistakes!</p>
-            <table className="combo-table">
-              <tr>
-                <td>Combos</td>
-                <td>10</td>
-                <td>30</td>
-                <td>50</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>Points Multiplier</td>
-                <td>2X</td>
-                <td>3X</td>
-                <td>4X</td>
-                <td>5X</td>
-              </tr>
-            </table>
+        <div className="info desktop-resolution">
+          <p className="center">Earn combos by typing correctly without making mistakes!</p>
+          <table className="combo-table">
+            <tr>
+              <td>Combos</td>
+              <td>10</td>
+              <td>30</td>
+              <td>50</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Points Multiplier</td>
+              <td>2X</td>
+              <td>3X</td>
+              <td>4X</td>
+              <td>5X</td>
+            </tr>
+          </table>
 
-            <div className="progress">
-              <p className="center">Game is still a work in progress</p>
-              <p>I apologize if things don't makes sense or feels weird.</p>
-            </div> 
-          </div>
-        </section>  
+          <div className="progress">
+            <p className="center">Game is still a work in progress</p>
+            <p>I apologize if things don't makes sense or feels weird.</p>
+          </div> 
+        </div>
+        
       </div>
     );
   }

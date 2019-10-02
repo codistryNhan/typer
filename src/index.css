@@ -7,7 +7,8 @@
 
 @import url('../node_modules/@fortawesome/fontawesome-pro/css/all.min.css');
 :root {
-  box-sizing: border-box;               
+  box-sizing: border-box;
+  font-size: 16px;               
 }
 
 *,
@@ -27,38 +28,18 @@ body,h1,h2,h3,h4,h5,h6,p,ul,li {
 
 
 body {
-  /* background:rgba(31, 17, 160, 0.9); */
-  /* background:rgba(7, 29, 153, 0.9); */
-  background: rgb(33,55,175);
-background: linear-gradient(180deg, rgba(33,55,175,1) 0%, rgba(22,36,113,1) 100%);
+  background:rgba(10, 29, 139, 0.9);
   color: white; 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-family: 'Lexend Deca';
-  font-size: 16px;
+  font-size: 1rem;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   
 }
 
-header{
-  font-family: canada-type-gibson, sans-serif;
-  padding: 0.5em 0; 
-  text-align: center;
-}
-
-.header {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 0.5em 0 0 0;
-}
-
-.logo {
-  width: 1.6rem;
-  margin-top: 0.5em;
-}
-
+/* Loading Screen */
 .loading {
   position: fixed;
   top: 0;
@@ -84,6 +65,188 @@ header{
   width: 4rem;
 }
 
+/* Header */
+header{
+  font-family: canada-type-gibson, sans-serif;
+  font-size: 1.3rem;
+  padding: 0.5em 0; 
+  text-align: center;
+}
+
+.header {
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0.5em 0 0 0;
+}
+
+.logo {
+  width: 1.5rem;
+  margin-top: 0.5em;
+}
+
+/* Main */
+.main-container {
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+/* Stats */
+.stats-container {
+  color: white;
+  display: flex;
+  font-family: 'Squada One', sans-serif;
+  padding-bottom: 1em;
+}
+
+.stats-container > div {
+  width: 100%;
+}
+
+/* Timer */
+.timer-container {
+  text-align: center;
+}
+.timer-header {
+  font-size: 1rem;
+}
+.timer-body{
+  font-size: 2rem;
+}
+
+/* MultiplierStars */
+.multiplier-stars-container {
+  text-align: center;
+}
+
+.multiplier-stars-header {
+  font-size: 1rem;
+  padding-bottom: 0.5em;
+}
+
+.multiplier-stars-body{
+  font-size: 2rem;
+  padding-bottom: 0.35em;
+}
+
+.multiplier-stars-flag {
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.multiplier-stars-flag:not(:first-child) {
+  margin-left: 0.35em;
+}
+
+.multiplier-stars-flag-on {
+  color: #ffd800;
+  opacity: 1;
+  animation: bounce 0.5s infinite;
+}
+
+/* Score */
+.score-container {
+  text-align: center;
+}
+.score-header {
+  font-size: 1rem;
+}
+.score-body{
+  font-size: 2rem;
+}
+
+/* Tweet container */
+.tweet-container {
+  background-color: #1c2b82;
+  min-height: 12rem;
+  padding: 1.5em;
+  position:relative;
+}
+
+/* Tweet Info*/
+.tweet-info-container {
+  color: #c4ceff;
+  font-size: 0.85rem;
+  margin-bottom: 0.5em;
+}
+
+.tweet-info-container > div {
+  margin-right: 1em;
+}
+
+/* DisplayTweet */
+.display-tweet {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.twitter-icon {
+  color: #1DA1F2;
+}
+
+.caret {
+  color: #37d397;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: -0.9em;
+  left: 40%;
+  margin-left: -0.3em;
+
+  animation: caret-bounce 0.3s infinite;
+}
+
+.caret-error {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: -0.9em;
+  left: 40%;
+  margin-left: -0.3em;
+
+  animation: 0.1s 3 caret-error ,  0.3s 1 caret-error-color,  0.3s 0.4s infinite caret-bounce;
+}
+
+.caret-space {
+  color: #37d397;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: -0.8em;
+  left: 0rem;
+
+  animation: caret-bounce 0.3s infinite;
+}
+
+.caret-space-error {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: -0.8rem;
+  left: 0rem;
+
+  animation: 0.1s 3 caret-error ,  0.3s 1 caret-error-color,  0.3s 0.4s infinite caret-bounce;
+}
+
+.char {
+  position:relative;
+  transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.char-correct {
+  opacity: 0.5;
+}
+
+.points-to-add {
+  font-family: 'Squada One', sans-serif;
+  font-size: 1rem;
+  position: absolute;
+  color: #00ff99;
+  top: -1.1rem;
+  left: 0;
+  opacity: 0;
+
+  animation: addPoints-move 1.3s 1 , fade 1.3s 1;
+}
+
+/* DisplayTweets - Hidden Input Container */
 .key-input-container {
   width: 0;
   height: 0;
@@ -98,6 +261,68 @@ header{
   font-size: 16px;
 }
 
+/* Multiplier */
+.multiplier-container {
+  opacity: 0;
+
+  position: absolute;
+  top:1em;
+  left: 50%;
+  margin-left: -4em;
+
+
+  color: rgb(255, 225, 54);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: 'Squada One', sans-serif;
+  font-size: 1rem;
+
+  animation: multiplier-move-up 1s 1, fade 1s 1;
+}
+
+.multiplier-number {
+  font-size: 2em;
+  text-align: center;
+}
+
+
+
+/* TypedKeys */
+/* LastTypedKey */
+.key-history-char{
+  display: inline-block;
+  min-width:0.7em;
+  text-align:center;
+}
+
+.typed-keys-container {
+  font-size: 1.25em;
+  margin-top: 0.5em;
+}
+
+
+.typed-keys-header {
+  text-align: center;
+}
+
+.blinking-cursor{
+  position: absolute;
+  bottom: -0.1rem;
+  right: 0;
+  animation: 1s blink step-end infinite;
+}
+
+.key-history-container {
+  color: rgb(255, 225, 54);
+  width: 50.5%;
+  height: 1.3em;
+
+  display:flex;
+  justify-content: flex-end;
+
+  position:relative;
+}
+
+/* Info Section */
 .info {
   padding: 1em;
 }
@@ -124,50 +349,33 @@ header{
   margin-top: 1em;
 }
 
-.main-container {
-  height: 100%;
-  max-width: 550px;
-  margin: 0 auto;
+/* Desktop Mode */
+@media (min-width: 600px) {
+  :root {
+    font-size: 20px;
+  }
+
+  .main-container {
+    max-width: 1200px;
+  }
 }
 
-.info-instructions {
-  font-family: canada-type-gibson, sans-serif;
-  font-weight: 400;
-  font-size: 1.25rem;
-  font-style: normal;
-  text-align: center;
-  margin-bottom: 0.5em;
+@media (min-width: 900px) {
+  :root {
+    font-size: 24px;
+  }
+
+  .desktop-resolution {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
 }
 
-/* Stats */
-.stats-container {
-  color: white;
-  font-family: 'Squada One', sans-serif;
-  font-size: 1.5em;
-  padding: 0.5em 0.5em;
-  display: flex;
-}
 
-.stats-container > div {
-  width: 100%;
-}
 
-.stat-element-container {
-  text-align: center;
-}
 
-.stat-element-header {
-  font-size: 0.7em;
-}
 
-.stat-element-body {
-  font-size: 1.25em;
-}
-
-.stat-multiplier {
-  position:relative;
-}
-
+/* Animations */
 .rotate-speed-1 {
   animation: rotation 4s infinite linear;
 }
@@ -189,196 +397,45 @@ header{
   
 }
 
-.multiplier-container {
-  display: none;
-
-  position: absolute;
-  top:10px;
-  left: 50%;
-  margin-left: -90px;
-
-
-  color: #b8c900;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  font-family: 'Squada One', sans-serif;
-  font-size: 2em;
-}
-
-
-.multiplier-header {
-  display: flex;
-  font-size: 1.3rem;
-}
-
-.multiplier-body {
-  font-size: 3rem;
-  text-align: center;
-}
-
-.multiplier-arrow-up {
-  animation: arrow-up 0.5s infinite linear;
-}
-
-/* display-tweet */
-.tweet-container {
-  padding: 1.5em;
-  position:relative;
-}
-
-.tweet-header {
-  font-size: 1em;
-  margin-bottom: 0.5em;
-}
-
-.tweet-header-date {
-  margin-top: 0.25em;
-  display: block;
-}
-
-@media (min-width: 550px) {
-  .tweet-header-date::before {
-    content: '\2022\0020';
-  }
-  .tweet-header-date {
-    margin-top: 0;
-    margin-left: 0.4em;
-    display: inline-block;
-  }
-}
-
-.twitter-icon {
-  color: #1DA1F2;
-}
-
-.display-tweet {
-  font-size: 1.3em;
-  line-height: 1.4;
-  letter-spacing: 0;
-}
-
-.caret {
-  color: #37d397;
-  font-size: 0.6em;
-  position: absolute;
-  bottom: -0.9em;
-  left: 40%;
-  margin-left: -0.3em;
-
-  animation: caret-bounce 0.3s infinite;
-}
-
-.caret-error {
-  font-size: 0.6em;
-  position: absolute;
-  bottom: -0.9em;
-  left: 40%;
-  margin-left: -0.3em;
-
-  animation: 0.1s 3 caret-error ,  0.3s 1 caret-error-color,  0.3s 0.4s infinite caret-bounce;
-}
-
-.caret-space {
-  color: #37d397;
-  font-size: 0.5em;
-  position: absolute;
-  bottom: -0.8em;
-  left: 0.25em;
-
-  animation: caret-bounce 0.3s infinite;
-}
-
-.caret-space-error {
-  font-size: 0.5em;
-  position: absolute;
-  bottom: -0.8em;
-  left: 0.3em;
-
-  animation: 0.1s 3 caret-error ,  0.3s 1 caret-error-color,  0.3s 0.4s infinite caret-bounce;
-}
-
-.char {
-  position:relative;
-  transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.char-correct {
-  opacity: 0.5;
-}
-
-.points-to-add {
-  font-family: 'Squada One', sans-serif;
-  font-size: 0.8em;
-  position: absolute;
-  color: #33bf87;
-  top: -0.8em;
-  left: 0;
-  opacity: 0;
-
-  animation: 1s 1 addPoints-move, 1s 1 addPoints-fade;
-}
-
-/* Tweet Info */
-.tweet-info-container {
-  color: #007bff;
-  display: flex;
-  /* font-family: 'Oswald', sans-serif; */
-  font-size: 1em;
-  font-weight: 400;
-  margin-top: 1em;
-}
-
-.tweet-info-container > div {
-  margin-right: 1em;
-}
-
-/* LastTypedKey */
-.blinking-cursor{
-  position: absolute;
-  bottom: 0.3em;
-  right: 0;
-  animation: 1s blink step-end infinite;
-}
-
-.key-history-container {
-  width: 50.5%;
-  height: 1.75em;
-
-  display:flex;
-  justify-content: flex-end;
-
-  position:relative;
-}
-
-.key-history-char{
-  display: inline-block;
-  min-width:0.7em;
-  text-align:center;
-}
-
-.typed-keys-container {
-  font-size: 1.5em;
-  margin-top: 0.5em;
-}
-
-.typed-keys-header {
-  text-align: center;
-}
-
-.input {
-  min-height: 2em;
-  padding-bottom: 0.5em;
-}
-
-
-
-/* Animations */
 @keyframes blink {
   from, to {
     color: transparent;
   }
   50% {
-    color: white;
+    color: #FFD800;
   }
+}
+
+/* @keyframes bounce {
+  from,
+  20%,
+  53%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -0.2rem, 0);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -0.1rem, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -0.05rem, 0);
+  }
+} */
+
+@keyframes bounce {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-0.15em);}
+  100% {transform: translateY(0);}
 }
 
 @keyframes caret-bounce {
@@ -409,8 +466,9 @@ header{
   100% { transform: translateY(-0.3em);}
 }
 
-@keyframes addPoints-fade {
+@keyframes fade {
   0% { opacity: 1;}
+  80% { opacity: 1;}
   100% { opacity: 0;}
 }
 
@@ -447,4 +505,16 @@ header{
   100% {
     transform: scale(0.9);
   }
+}
+
+@keyframes multiplier-show {
+  0% { transform: scale(1.3);}
+  60% { transform: scale(0.8);}
+  75% { transform: scale(1.1);}
+  100% { transform: scale(1);}
+}
+
+@keyframes multiplier-move-up {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-1rem);}
 }

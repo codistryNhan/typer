@@ -2,12 +2,13 @@ import React from 'react';
 
 const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey, inputRef, handleOnChange, pointsToAdd }) => {
   const quote = tweet.split('').map( (char, index) => {
-    
+    char = String(char);
     //if at the current char
       //if the current char is a space, insert a space and bouncing caret
       //else insert the char with bouncing caret
     //else
       //means we've correctly typed in the char, turn down opacity
+      //if char is right before current, display points added
     if(currentIndex === index) {
       if(char === ' ') {
         return (
@@ -30,7 +31,10 @@ const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey, in
         );
       }
     } else {
-      const addPoints = <span className="points-to-add">+{pointsToAdd}pts</span>
+      const addPoints = 
+        <span className="points-to-add">
+          +{pointsToAdd}
+        </span>
       const isLast = (index === currentIndex - 1);
 
       if(char === ' ') {
@@ -43,12 +47,10 @@ const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey, in
         ); 
       } else {
         return(
-          <>
-          <span className="char">
-            <span className={currentIndex > index ? "char-correct" : null }>{char}</span>
+          <span className={currentIndex > index ? "char-correct char" : "char" }>
+            {char}
             { isLast ? addPoints : null}
           </span>
-          </>
         );
       }
     }
