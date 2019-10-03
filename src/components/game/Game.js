@@ -6,7 +6,6 @@ import MultiplierPopUp from './MultiplierPopUp';
 import MultiplierStars from './MultiplierStars';
 import Score from './Score';
 import Timer from './Timer';
-import TweetHeader from './TweetHeader';
 import TweetInfo from './TweetInfo';
 import TypedKeys from './TypedKeys';
 
@@ -191,12 +190,6 @@ class Game extends React.Component {
     return (
       <div ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
-        <header>
-          <div>
-            <p className="header">FREEDOM TYPER</p>
-            <img className="logo" alt="logo" src="/logoTyper.svg" /> 
-          </div>
-        </header>
         
         <div className="stats-container desktop-resolution">
           <Timer timer={this.state.timer} />

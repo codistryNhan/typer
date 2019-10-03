@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import TweetHeader from './TweetHeader';
 
 const TweetInfo = ( {tweet} ) => {
   const fav_count = numberWithCommas(tweet.favorite_count);
@@ -12,7 +11,12 @@ const TweetInfo = ( {tweet} ) => {
 
   return (
     <div className="tweet-info-container">
-      <div>Tweet #{tweet.id}</div>
+      <div className="tweet-info-row-1">
+        <div>Tweet #{tweet.id}</div>
+        <div>
+          <span>Likes {tweet.favorite_count} Retweets {tweet.retweet_count}</span>
+        </div>
+      </div>
       <div>{date }</div>
     </div>
     

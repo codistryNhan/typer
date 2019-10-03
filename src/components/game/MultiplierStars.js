@@ -19,7 +19,7 @@ const MultiplierStars = ({multiplier}) => {
         <div className="multiplier-stars-header">
           MULTIPLIER
         </div>
-        <div className="multipliers-stars-body">
+        <div className="multiplier-stars-body">
           {flags}
         </div>
         <div>

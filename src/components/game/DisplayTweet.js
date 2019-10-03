@@ -26,7 +26,7 @@ const DisplayTweet = ({ tweet, currentIndex, incorrectKey, resetIncorrectKey, in
             <span className={incorrectKey ? "caret caret-error" : "caret"}>
               <i className="fas fa-lg fa-caret-up"></i>
             </span>
-            <span className="char-enlarge">{char}</span>
+            {char}
           </span>
         );
       }

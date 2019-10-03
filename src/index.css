@@ -28,7 +28,7 @@ body,h1,h2,h3,h4,h5,h6,p,ul,li {
 
 
 body {
-  background:rgba(10, 29, 139, 0.9);
+  background:rgb(20, 61, 173);
   color: white; 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-family: 'Lexend Deca';
@@ -41,6 +41,7 @@ body {
 
 /* Loading Screen */
 .loading {
+  background: rgb(20, 61, 173);
   position: fixed;
   top: 0;
   left: 0;
@@ -51,9 +52,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background: rgb(33,55,175);
-  background: linear-gradient(180deg, rgba(33,55,175,1) 0%, rgba(22,36,113,1) 100%);
 }
 
 .loading > div {
@@ -124,8 +122,7 @@ header{
 }
 
 .multiplier-stars-body{
-  font-size: 2rem;
-  padding-bottom: 0.35em;
+  margin-bottom: 0.3em;
 }
 
 .multiplier-stars-flag {
@@ -157,7 +154,7 @@ header{
 
 /* Tweet container */
 .tweet-container {
-  background-color: #1c2b82;
+  background-color: rgb(18, 51, 143);
   min-height: 12rem;
   padding: 1.5em;
   position:relative;
@@ -168,6 +165,11 @@ header{
   color: #c4ceff;
   font-size: 0.85rem;
   margin-bottom: 0.5em;
+}
+
+.tweet-info-row-1 {
+  display: flex;
+  justify-content: space-between;
 }
 
 .tweet-info-container > div {
@@ -231,7 +233,7 @@ header{
 }
 
 .char-correct {
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 .points-to-add {
@@ -352,7 +354,7 @@ header{
 /* Desktop Mode */
 @media (min-width: 600px) {
   :root {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .main-container {
@@ -362,7 +364,7 @@ header{
 
 @media (min-width: 900px) {
   :root {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .desktop-resolution {
