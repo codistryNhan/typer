@@ -32,7 +32,7 @@ class Game extends React.Component {
       points: 0,
       pointsToAdd: 0,
       redirectResults: false,
-      timer: 6000,
+      timer: 600,
       timesUp: false,
       tweet: 'I am a tweet',
       tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
