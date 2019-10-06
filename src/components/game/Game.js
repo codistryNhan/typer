@@ -32,7 +32,7 @@ class Game extends React.Component {
       points: 0,
       pointsToAdd: 0,
       redirectResults: false,
-      timer: 100,
+      timer: 6000,
       timesUp: false,
       tweet: 'I am a tweet',
       tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
@@ -73,7 +73,6 @@ class Game extends React.Component {
       this.gameEnd();
       this.getResults(this.state);
       this.setState({redirectResults: true});
-      
     }
   }
 
@@ -234,13 +233,6 @@ class Game extends React.Component {
   }
 
   render() {
-    if(this.state.redirectResults) {
-      console.log('redirect');
-      return (
-        <Redirect to="/results" />
-      )
-    }
-
     return (
       <div ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
