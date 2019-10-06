@@ -1,0 +1,13 @@
+.start {
+  color: rgb(255, 225, 54);
+  display: block;
+  font-family: 'Squada One', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  margin-top: 1em;
+  text-align: center;
+  text-shadow: 1px 1px 0px black;
+  width: 100%;
+
+  animation: 1s blink step-end infinite;
+}

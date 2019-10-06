@@ -1,0 +1,22 @@
+.loading {
+  background: #154791;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading > div {
+  animation: heart-beat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  text-align: center;
+}
+
+.loadingLogo {
+  width: 4rem;
+}

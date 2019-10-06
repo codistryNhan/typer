@@ -1,0 +1,60 @@
+.landing-page-container {
+  margin: 0 1rem;
+}
+
+.landing-hero{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin-top: 7.2rem;
+  text-align: center;
+}
+
+.landing-hero-logo-container {
+  background: #d64040;
+  border-radius: 0.25em;
+  box-shadow: 1px 1px 0px black;
+  display: inline-block;
+  margin-right: 0.8em;
+  padding: 0.37em 0.5em;
+}
+
+.landing-hero-logo {
+  width: 2rem;
+}
+
+.landing-hero-title{
+  font-family: 'Squada One', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-shadow: 2px 2px 0px black;
+}
+
+.landing-hero-phrase {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 1em 0;
+  max-width: 25em;
+}
+
+.landing-hero-btn-container {
+  margin-top: 1em;
+}
+
+.landing-hero-btn {
+  background: #d64040;
+  border-bottom: 3px solid #771f1f;
+  border-radius: 0 0 5px 5px;
+  display: block;
+  font-family: 'Squada One', sans-serif;
+  font-size: 1.2rem;
+  margin-top: 1em;
+  padding: 1em;
+  width: 100%;
+}
+
+.landing-hero-btn:hover {
+  background: #ff4c4c;
+}

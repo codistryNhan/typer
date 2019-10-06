@@ -10,7 +10,7 @@ const MultiplierStars = ({multiplier}) => {
                   </div>;
 
   let flags = [];
-  for(let i = 1; i <= 4; i++) {
+  for(let i = 1; i <= 3; i++) {
     i < multiplier ? flags.push(flagOn) : flags.push(flagOff);    
   }
 
