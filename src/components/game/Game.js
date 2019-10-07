@@ -32,11 +32,14 @@ class Game extends React.Component {
       points: 0,
       pointsToAdd: 0,
       redirectResults: false,
-      timer: 600,
+      timer: 100,
       timesUp: false,
-      tweet: 'I am a tweet',
+      tweet: '',
       tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
     }
+
+    this.initialState = this.state;
+
     this.getTweets();
     this.mainRef = React.createRef();
   }
@@ -199,6 +202,11 @@ class Game extends React.Component {
     }
   }
 
+  resetGame = () => {
+    this.setState(this.initialState);
+    this.getTweets();
+  }
+
   setMultiplier = num => {
     this.setState( () => ({
       multiplier: num,
@@ -233,9 +241,11 @@ class Game extends React.Component {
   }
 
   render() {
+
     return (
       <div ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
+        <Results />
 
         <div className="game-container">
           <div className="desktop-resolution">
@@ -278,6 +288,15 @@ class Game extends React.Component {
               &&
               <Start gameStart={this.gameStart}/>
             }
+
+            <Results 
+              score={this.state.points} 
+              maxCombo={this.state.maxCombo} 
+              display={!this.state.gameStart && this.state.gameEnd}
+              wpm={this.state.correctCount}
+              reset={this.resetGame} 
+            />
+            
             
           </div>
         </div>

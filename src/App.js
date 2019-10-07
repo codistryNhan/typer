@@ -11,51 +11,22 @@ function App() {
   return (
     <Router>
     <>
-    <Switch>
-      <Route path="/results">
-        <Header />
-        <Results />
-      </Route>
+      <Switch>
+        <Route path="/results">
+          <Header />
+          <Results />
+        </Route>
 
-      <Route path="/game">
-        <Header />
-        <Game />
-      </Route>
+        <Route path="/game">
+          <Header />
+          <Game />
+        </Route>
 
-      <Route path="/">
-        <LandingPage />
-      </Route>
+        <Route path="/">
+          <LandingPage />
+        </Route>
 
-    </Switch>
-    {/*<Header />
-
-    <section className="main">
-      <Game />
-
-      <div className="info desktop-resolution">
-        <table className="combo-table">
-          <tr>
-            <td>Combos</td>
-            <td>10</td>
-            <td>30</td>
-            <td>50</td>
-            <td>100</td>
-          </tr>
-          <tr>
-            <td>Points Multiplier</td>
-            <td>2X</td>
-            <td>3X</td>
-            <td>4X</td>
-            <td>5X</td>
-          </tr>
-        </table>
-
-        <div className="progress">
-          <p>Game is still a work in progress</p>
-          <p>So there are a bunch of things that doesn't make sense yet, sorry.</p>
-        </div> 
-      </div>
-    </section> */}
+      </Switch>
     </>
     </Router>
   );

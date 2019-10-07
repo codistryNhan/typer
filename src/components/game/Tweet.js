@@ -6,9 +6,7 @@ const Tweet = ({
   incorrectKey, 
   resetIncorrectKey, 
   inputRef, 
-  inputRefStart, 
   handleOnChange,
-  handleStart, 
   pointsToAdd, 
   gameEnd }) => {
   const quote = tweet.split('').map( (char, index) => {

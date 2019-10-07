@@ -22,17 +22,20 @@ const LandingPage = (props) => {
 
           <div className="landing-hero-btn-container">
             <Link to="/game">
-              <button className="landing-hero-btn">
+              <button className="btn">
                 Play Game
               </button>
             </Link>
             
-            <button className="landing-hero-btn">
+            <button className="btn disabled" dia>
               Top Scores
             </button>
-            <button className="landing-hero-btn">
+            <button className="btn disabled">
               About
             </button>
+
+            <br />
+            <div>*Game is still a work in progress*</div>
           </div>
         </div>
       </section>
