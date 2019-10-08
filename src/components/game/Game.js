@@ -10,7 +10,6 @@ import Start from './Start';
 import Timer from './Timer';
 import TweetInfo from './TweetInfo';
 import TypedKeys from './TypedKeys';
-import { BrowserRouter as Redirect, Router, Switch, Route, Link } from "react-router-dom";
 
 class Game extends React.Component {
   constructor(props) {
@@ -35,7 +34,8 @@ class Game extends React.Component {
       timer: 600,
       timesUp: false,
       tweet: '',
-      tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}]
+      tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}],
+      wpm: 0
     }
 
     this.initialState = this.state;
@@ -53,8 +53,8 @@ class Game extends React.Component {
     });
 
     this.mainRef.current.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.focusInput();
+        e.preventDefault();
+        this.focusInput();
     });
   }
 
@@ -74,13 +74,20 @@ class Game extends React.Component {
     //Game Stops after timer ends
     if(this.state.gameStart && this.state.timer === 0) {
       this.gameEnd();
-      this.getResults(this.state);
-      this.setState({redirectResults: true});
+      this.setState({
+        redirectResults: true,
+        wpm: Math.floor((this.state.correctCount / 5.0)) * 6
+      });
     }
   }
 
+  componentWillUnmount() {
+  }
+
   focusInput = (e) => {
-    this.keyInputRef.focus();
+    if(typeof this.keyInputRef !== 'undefined') {
+      this.keyInputRef.focus();
+    }
   }
 
   gameStart = () => {
@@ -95,11 +102,6 @@ class Game extends React.Component {
 
   gameEnd = () => {
     this.setState({gameEnd: true, gameStart: false});
-  }
-
-  getResults = ({ correctCount, points, maxCombo }) => {
-    let wpm = (correctCount / 5.0) * 6;
-    console.log(points, maxCombo, correctCount, wpm);
   }
 
   getTweets = () => {
@@ -241,11 +243,10 @@ class Game extends React.Component {
   }
 
   render() {
-
     return (
+      <>
       <div ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
-        <Results />
 
         <div className="game-container">
           <div className="desktop-resolution">
@@ -289,19 +290,20 @@ class Game extends React.Component {
               <Start gameStart={this.gameStart}/>
             }
 
-            <Results 
-              score={this.state.points} 
-              maxCombo={this.state.maxCombo} 
-              display={!this.state.gameStart && this.state.gameEnd}
-              wpm={this.state.correctCount}
-              reset={this.resetGame} 
-            />
-            
-            
           </div>
         </div>
-        
       </div>
+
+      {(!this.state.gameStart && this.state.gameEnd) &&
+      <Results 
+        score={this.state.points} 
+        maxCombo={this.state.maxCombo} 
+        wpm={this.state.wpm} 
+        display={true} 
+        reset={this.resetGame}
+      />
+      }
+      </>
     );
   }
 }

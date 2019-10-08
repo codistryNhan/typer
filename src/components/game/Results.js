@@ -6,21 +6,65 @@ class Results extends React.Component {
     super(props)
 
     this.state = {
-      value: ''
+      value: '',
+      inputEmpty: false,
     }
+
+    this.resultsRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.resultsInputRef.focus();
+  }
+
+  focusInput = () => {
+    this.resultsInputRef.focus();
   }
 
   handleChange = (e) => {
-    this.setState({value: e.target.value});
+    if(e.target.value.match(/^[a-z0-9]*$/i)) {
+      this.setState({value: e.target.value});
+    }
+  }
+
+  sendResults = () => {
+    if(this.state.value.length > 0) {
+      const {score, maxCombo, wpm, display, reset} = this.props;
+      const url = "http://codistry.io:3001/api/v1/scores";
+      const data = {
+        name: this.state.value,
+        score,
+        maxCombo,
+        wpm
+      }
+
+      let obj = {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+
+      fetch(url, obj)
+        .then( response => {
+          console.log(response);
+          this.props.reset();
+        });
+    } else {
+      this.setState({inputEmpty: true});
+    }
   }
 
   render() {
     const {score, maxCombo, wpm, display, reset} = this.props;
+    const {value} = this.state;
 
     return (
       <>
       <div className={display ? "modal-background show" : "modal-background"}>
-        <div className="results-container">
+        <div className="results-container" onClick={this.focusInput}>
           <h1 className="results-header">Results</h1>
           
           <div className="results-row">
@@ -41,11 +85,49 @@ class Results extends React.Component {
           <input 
             className="results-enter-initials"
             type="text" 
-            value={this.state.value} 
+            ref={el => this.resultsInputRef = el}
+            value={this.state.value}
+            maxlength="3" 
             onChange={this.handleChange}
           />
 
-          <button className="btn disabled">
+          <div className="results-initials-container">
+            <div className="results-initials">
+              <div>
+                <div className="result-initials-each">{value[0]}</div>
+                <div 
+                  className={!value[0] ? "results-underscore show" : "results-underscore"}>
+                  _
+                </div>
+              </div>
+              <div>
+                <div className="result-initials-each">{value[1]}</div>
+                <div 
+                  className={!value[1] ? "results-underscore show" : "results-underscore"}>
+                  _
+                </div>
+              </div>
+              <div>
+                <div className="result-initials-each">{value[2]}</div>
+                <div 
+                  className={!value[2] ? "results-underscore show" : "results-underscore"}>
+                  _
+                </div>
+              </div> 
+            </div>
+
+            <div className="results-caption">
+              Enter your initials
+            </div>
+
+            <div 
+              className={this.state.inputEmpty ? "results-initials-empty show" : "results-initials-empty"}>
+              Initials cannot be empty
+            </div>
+            
+          </div>
+
+          <button className="btn" onClick={this.sendResults}>
             Submit
           </button>
           <button className="btn" onClick={reset}>
