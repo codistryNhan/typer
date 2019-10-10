@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Game from './components/game/Game';
 import Header from './components/header/Header';
 import LandingPage from './components/landing-page/LandingPage';
-import Nav from './components/Nav';
 import Results from './components/game/Results'
+import HighScores from './components/high-scores/HighScores';
 
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
     <Router>
     <>
       <Switch>
-        <Route path="/results">
+        <Route path="/highscores">
           <Header />
-          <Results />
+          <HighScores />
         </Route>
 
         <Route path="/game">

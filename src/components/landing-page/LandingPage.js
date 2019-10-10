@@ -1,6 +1,6 @@
 import React from 'react';
 import './landing-page.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const LandingPage = (props) => {
   return(
@@ -27,12 +27,11 @@ const LandingPage = (props) => {
               </button>
             </Link>
             
-            <button className="btn disabled" dia>
-              Top Scores
-            </button>
-            <button className="btn disabled">
-              About
-            </button>
+            <Link to="/highscores">
+              <button className="btn">
+                High Scores
+              </button>
+            </Link>
 
             <br />
             <div>*Game is still a work in progress*</div>

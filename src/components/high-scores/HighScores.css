@@ -1,0 +1,22 @@
+.scores-each {
+  display: flex;
+  justify-content: space-evenly;
+
+  text-align: center;
+}
+
+.high-scores-header {
+  padding: 1rem 2rem;
+}
+
+.high-scores-table {
+  padding: 0 2rem;
+}
+
+.high-scores-table > table {
+  width: 100%;
+}
+
+.high-scores-table tr {
+  
+}

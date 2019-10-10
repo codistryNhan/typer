@@ -58,12 +58,12 @@ class Results extends React.Component {
   }
 
   render() {
-    const {score, maxCombo, wpm, display, reset} = this.props;
+    const {score, maxCombo, wpm, reset} = this.props;
     const {value} = this.state;
 
     return (
       <>
-      <div className={display ? "modal-background show" : "modal-background"}>
+      <div className="modal-background">
         <div className="results-container" onClick={this.focusInput}>
           <h1 className="results-header">Results</h1>
           

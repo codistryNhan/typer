@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Combo from './Combo';
 import Tweet from './Tweet';
 import Loading from '../loading-page/LoadingPage';
@@ -299,7 +300,6 @@ class Game extends React.Component {
         score={this.state.points} 
         maxCombo={this.state.maxCombo} 
         wpm={this.state.wpm} 
-        display={true} 
         reset={this.resetGame}
       />
       }
