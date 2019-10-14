@@ -9,6 +9,7 @@ const Tweet = ({
   handleOnChange,
   pointsToAdd, 
   gameEnd }) => {
+    
   const quote = tweet.split('').map( (char, index) => {
     char = String(char);
     //if at the current char

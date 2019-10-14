@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import Combo from './Combo';
 import Tweet from './Tweet';
 import Loading from '../loading-page/LoadingPage';
@@ -46,12 +46,13 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
+    //On mount, focus 
     this.focusInput();
 
-    window.addEventListener('onfocus', (e) => {
-      e.preventDefault();
-      this.focusInput();
-    });
+    // window.addEventListener('onfocus', (e) => {
+    //   e.preventDefault();
+    //   this.focusInput();
+    // });
 
     this.mainRef.current.addEventListener('click', (e) => {
         e.preventDefault();
@@ -80,9 +81,6 @@ class Game extends React.Component {
         wpm: Math.floor((this.state.correctCount / 5.0)) * 6
       });
     }
-  }
-
-  componentWillUnmount() {
   }
 
   focusInput = (e) => {
@@ -268,11 +266,9 @@ class Game extends React.Component {
             <Tweet 
               currentIndex={this.state.currentIndex}
               gameEnd={this.state.gameEnd}
-              handleStart={this.handleStart}
               handleOnChange={this.handleOnChange}
               incorrectKey={this.state.incorrectKey}
               inputRef={el => this.keyInputRef = el}
-              inputRefStart = {el => this.startInputRef = el}
               pointsToAdd={this.state.pointsToAdd}
               resetIncorrectKey={this.resetIncorrectKey}
               tweet={this.state.tweet} 
