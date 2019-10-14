@@ -49,10 +49,10 @@ class Game extends React.Component {
     //On mount, focus 
     this.focusInput();
 
-    // window.addEventListener('onfocus', (e) => {
-    //   e.preventDefault();
-    //   this.focusInput();
-    // });
+    window.addEventListener('onfocus', (e) => {
+      e.preventDefault();
+      this.focusInput();
+    });
 
     this.mainRef.current.addEventListener('click', (e) => {
         e.preventDefault();
