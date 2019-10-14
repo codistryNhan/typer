@@ -1,3 +1,7 @@
+/*
+** Game is the main component of the game
+*/
+
 import React from 'react';
 import { BrowserRouter as Router} from "react-router-dom";
 import Combo from './Combo';
@@ -21,7 +25,7 @@ class Game extends React.Component {
       correctCount: 0,
       currentKey: '',
       currentIndex: 0,
-      currentTweetIndex: 0,
+      currentTweetsIndex: 0,
       gameStart: false,
       gameEnd: false,
       keyHistory: [],
@@ -31,9 +35,7 @@ class Game extends React.Component {
       multiplier: 1,
       points: 0,
       pointsToAdd: 0,
-      redirectResults: false,
       timer: 600,
-      timesUp: false,
       tweet: '',
       tweets: [{date: '', full_text: '', favorite_count:0, retweet_count: 0}],
       wpm: 0
@@ -41,19 +43,24 @@ class Game extends React.Component {
 
     this.initialState = this.state;
 
+    //This input ref is our invisible main input of the game 
+    //that checks detects keys typed 
+    this.keyInputRef = {};
+
     this.getTweets();
     this.mainRef = React.createRef();
   }
 
   componentDidMount() {
-    //On mount, focus 
+    //On mount, focus the input to type
     this.focusInput();
 
-    window.addEventListener('onfocus', (e) => {
-      e.preventDefault();
-      this.focusInput();
-    });
+    // window.addEventListener('onfocus', (e) => {
+    //   e.preventDefault();
+    //   this.focusInput();
+    // });
 
+    //on click of the main game container, focus onto input to type.
     this.mainRef.current.addEventListener('click', (e) => {
         e.preventDefault();
         this.focusInput();
@@ -61,7 +68,7 @@ class Game extends React.Component {
   }
 
   componentDidUpdate() {
-    //Get next tweet if index has reached the last character of curren tweet
+    //Get next tweet if index has reached the last character of current tweet
     if(this.state.currentIndex === this.state.tweet.length - 1) {
       this.nextTweet();
     }
@@ -77,16 +84,13 @@ class Game extends React.Component {
     if(this.state.gameStart && this.state.timer === 0) {
       this.gameEnd();
       this.setState({
-        redirectResults: true,
         wpm: Math.floor((this.state.correctCount / 5.0)) * 6
       });
     }
   }
 
   focusInput = (e) => {
-    if(typeof this.keyInputRef !== 'undefined') {
-      this.keyInputRef.focus();
-    }
+    this.keyInputRef.focus();
   }
 
   gameStart = () => {
@@ -109,7 +113,7 @@ class Game extends React.Component {
     .then( data => data.json())
     .then( data => {
       this.setState({
-        tweet: data[0].full_text,
+        tweet: data[0].full_text.trim(),
         tweets: data
       });
     })
@@ -119,13 +123,15 @@ class Game extends React.Component {
     .catch( err => console.log(err));
   }
 
-  //Handles Key Type Inputs
+  //Handles the key inputs
+  //Checks if the character is the correct key
   handleOnChange = e => {
+    //Disable scrolling on space
     if(e.key === 32) {
       e.preventDefault();
     }
-    const currentVal = e.key;
 
+    const currentVal = e.key;
     const ignoreKeys = ['Shift', 'Alt', 'Control', 'Tab', 'CapsLock', 'Enter', 'Backspace'];
 
     //Add multipliers for higher combos
@@ -149,9 +155,8 @@ class Game extends React.Component {
       if(!this.state.gameStart && !this.state.gameEnd) {
         this.gameStart();
       }
-
+      
       if (currentVal === this.state.tweet[this.state.currentIndex]) {
-
         this.setState( prev => {
           let points = prev.multiplier * 10;
           return { 
@@ -163,7 +168,6 @@ class Game extends React.Component {
             incorrectKey: false
           };
         });
-
       } else {
         this.setState( prev => ({ 
           combo: 0,
@@ -183,12 +187,12 @@ class Game extends React.Component {
   }
 
   nextTweet = () => {
-    const nextTweetIndex = this.state.currentTweetIndex + 1;
-    const nextTweet = this.state.tweets[nextTweetIndex].full_text;
+    const nextTweetIndex = this.state.currentTweetsIndex + 1;
+    const nextTweet = this.state.tweets[nextTweetIndex].full_text.trim();
 
     this.setState( () => ({
       tweet: nextTweet,
-      currentTweetIndex: nextTweetIndex,
+      currentTweetsIndex: nextTweetIndex,
       currentIndex: 0,
     }));
   }
@@ -256,7 +260,7 @@ class Game extends React.Component {
             </div>  
 
             <TweetInfo 
-              tweet={this.state.tweets[this.state.currentTweetIndex]} 
+              tweet={this.state.tweets[this.state.currentTweetsIndex]} 
             />
 
             <MultiplierPopUp 

@@ -9,7 +9,7 @@ const Tweet = ({
   handleOnChange,
   pointsToAdd, 
   gameEnd }) => {
-    
+
   const quote = tweet.split('').map( (char, index) => {
     char = String(char);
     //if at the current char
@@ -68,15 +68,16 @@ const Tweet = ({
   return (
     <>
     <section className="display-tweet">
-      {quote}
       <div className="key-input-container">
         <input 
           className="key-input" 
           type="text" 
-          ref={inputRef} 
+          ref={inputRef}
+          //If game ends, remove handleOnChange so keys are no longer detected 
           onKeyDown={!gameEnd ? handleOnChange : undefined} 
         />
       </div>
+      {quote}
     </section>
       {incorrectKey ? resetIncorrectKey() : null}
     </>
