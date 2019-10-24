@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Game from './components/game/Game';
 import Header from './components/header/Header';
 import LandingPage from './components/landing-page/LandingPage';
-import Results from './components/game/Results'
 import HighScores from './components/high-scores/HighScores';
 
 
@@ -12,17 +11,17 @@ function App() {
     <Router>
     <>
       <Switch>
-        <Route path="/highscores">
+        <Route path="/typer/highscores">
           <Header />
           <HighScores />
         </Route>
 
-        <Route path="/game">
+        <Route path="/typer/game">
           <Header />
           <Game />
         </Route>
 
-        <Route path="/">
+        <Route path="/typer">
           <LandingPage />
         </Route>
 

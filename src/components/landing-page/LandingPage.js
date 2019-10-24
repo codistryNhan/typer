@@ -10,7 +10,7 @@ const LandingPage = (props) => {
         <div>
           <header>
             <div className="landing-hero-logo-container">
-              <img className="landing-hero-logo" src="/logoTyper.svg" />
+              <img alt="typerLogo" className="landing-hero-logo" src="/logoTyper.svg" />
             </div>
             
             <span className="landing-hero-title">FREEDOM TYPER</span>
@@ -21,13 +21,13 @@ const LandingPage = (props) => {
           </div>
 
           <div className="landing-hero-btn-container">
-            <Link to="/game">
+            <Link to="/typer/game">
               <button className="btn">
                 Play Game
               </button>
             </Link>
             
-            <Link to="/highscores">
+            <Link to="/typer/highscores">
               <button className="btn">
                 High Scores
               </button>

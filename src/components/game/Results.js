@@ -1,3 +1,7 @@
+/*
+*  Displays the results after the game finishes.
+*/
+
 import React from 'react';
 import './Results.css';
 
@@ -29,7 +33,7 @@ class Results extends React.Component {
 
   sendResults = () => {
     if(this.state.value.length > 0) {
-      const {score, maxCombo, wpm, display, reset} = this.props;
+      const {score, maxCombo, wpm, reset} = this.props;
       const url = "http://codistry.io:3001/api/v1/scores";
       const data = {
         name: this.state.value,
@@ -49,8 +53,7 @@ class Results extends React.Component {
 
       fetch(url, obj)
         .then( response => {
-          console.log(response);
-          this.props.reset();
+          reset();
         });
     } else {
       this.setState({inputEmpty: true});
