@@ -11,17 +11,17 @@ function App() {
     <Router>
     <>
       <Switch>
-        <Route path="/typer/highscores">
+        <Route path="/highscores">
           <Header />
           <HighScores />
         </Route>
 
-        <Route path="/typer/game">
+        <Route path="/game">
           <Header />
           <Game />
         </Route>
 
-        <Route path="/typer">
+        <Route path="/">
           <LandingPage />
         </Route>
 

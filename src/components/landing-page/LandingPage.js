@@ -21,13 +21,13 @@ const LandingPage = (props) => {
           </div>
 
           <div className="landing-hero-btn-container">
-            <Link to="/typer/game">
+            <Link to="/game">
               <button className="btn">
                 Play Game
               </button>
             </Link>
             
-            <Link to="/typer/highscores">
+            <Link to="/highscores">
               <button className="btn">
                 High Scores
               </button>
