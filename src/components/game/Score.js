@@ -11,19 +11,24 @@ class Score extends React.Component {
   }
 
   componentDidUpdate() {
-    if(this.props.score > this.state.currScore) {
+    if(this.props.score !== this.state.currScore) {
       this.updateScore(this.state.currScore, this.props.score);
     }
   }
 
   //Update scores with a counting effect
   updateScore = (oldScore, newScore) => {
-    const diff = newScore - oldScore;
-    for(let i = 0; i < diff; i++) {
-      setTimeout( (prev) => {
-        this.setState( prev => ({displayScore: prev.displayScore + 1}));
-      },100 * i);
+    if(oldScore < newScore) {
+      const diff = newScore - oldScore;
+      for(let i = 0; i < diff; i++) {
+        setTimeout( (prev) => {
+          this.setState( prev => ({displayScore: prev.displayScore + 1}));
+        },100 * i);
+      }
+    } else if(oldScore > newScore) {
+      this.setState({displayScore: 0});
     }
+    
 
     this.setState(prev => ({currScore: newScore }));
   }

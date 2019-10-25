@@ -5,7 +5,7 @@ const Start = ({gameStart}) => {
   return (
     <div className="start">
       <div>
-        BEGIN TYPING TO START GAME
+        Begin typing to start game
       </div>
     </div>
   )

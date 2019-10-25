@@ -1,0 +1,33 @@
+.key-history-char{
+  display: inline-block;
+  min-width:0.7em;
+  text-align:center;
+}
+
+.typed-keys-container {
+  font-size: 1.3em;
+  margin-top: 0.5em;
+}
+
+.typed-keys-header {
+  text-align: center;
+}
+
+.blinking-cursor{
+  position: absolute;
+  bottom: -0.1rem;
+  right: 0;
+  animation: 1s blink step-end infinite;
+}
+
+.key-history-container {
+  color: rgb(255, 225, 54);
+  width: 50.5%;
+  height: 1.3em;
+  margin-top: 2rem;
+
+  display:flex;
+  justify-content: flex-end;
+
+  position:relative;
+}

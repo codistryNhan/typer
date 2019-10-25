@@ -1,4 +1,5 @@
 import React from 'react';
+import './TypedKeys.css';
 
 const TypedKeys = props => {
   const len = props.keyHistory.length;

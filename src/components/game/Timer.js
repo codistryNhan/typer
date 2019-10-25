@@ -1,4 +1,5 @@
 import React from 'react';
+import './Timer.css';
 
 const Timer = ({timer}) => {
   timer = String(timer).padStart(3,'0');

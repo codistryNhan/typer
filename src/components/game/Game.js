@@ -251,14 +251,9 @@ class Game extends React.Component {
       <div ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
 
-        <div className="game-container">
-          <div className="desktop-resolution">
-            <div className="stats-container">
-              <Timer timer={this.state.timer} />
-              <MultiplierStars multiplier={this.state.multiplier} />
-              <Score score={this.state.points} />
-            </div>  
+        <div className="game-container responsive-desktop">
 
+            
             <TweetInfo 
               tweet={this.state.tweets[this.state.currentTweetsIndex]} 
             />
@@ -291,8 +286,12 @@ class Game extends React.Component {
               <Start gameStart={this.gameStart}/>
             }
 
+            <div className="stats-container">
+              <Timer timer={this.state.timer} />
+              <Score score={this.state.points} />
+            </div>  
           </div>
-        </div>
+
       </div>
 
       {(!this.state.gameStart && this.state.gameEnd) &&

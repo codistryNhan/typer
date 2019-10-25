@@ -9,9 +9,8 @@ const Header = () => {
       <Link to="/">
         <div className="main-header-brand"> 
           <div className="header-logo-container">
-            <img className="header-logo" alt="logo" src="/logoTyper.svg" /> 
+            <img className="header-logo" alt="logo" src="/typerLogo3.svg" /> 
           </div>
-          <div className="header-title">FREEDOM TYPER</div>
         </div>   
       </Link> 
     </header>

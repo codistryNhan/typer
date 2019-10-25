@@ -10,13 +10,12 @@ const LandingPage = (props) => {
         <div>
           <header>
             <div className="landing-hero-logo-container">
-              <img alt="typerLogo" className="landing-hero-logo" src="/logoTyper.svg" />
+              <img alt="typerLogo" className="landing-hero-logo" src="/typerLogo3.svg" />
             </div>
-            
-            <span className="landing-hero-title">FREEDOM TYPER</span>
           </header>
 
           <div className="landing-hero-phrase">
+            <h2>A Typing Game</h2>
             <p>Improve your typing and foreign policy skills at the same time by typing out the tweets from the President of the United States as fast as you can!</p>
           </div>
 
