@@ -1,5 +1,5 @@
 .loading {
-  background: #154791;
+  background: var(--main-blue-dark);
   position: fixed;
   top: 0;
   left: 0;

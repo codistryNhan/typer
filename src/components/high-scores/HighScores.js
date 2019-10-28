@@ -35,7 +35,7 @@ class HighScores extends React.Component {
     });
 
     return(
-      <div className="desktop-resolution high-scores-container">
+      <div className="high-scores-container">
         <div className="high-scores-header">
           <h1>High Scores</h1>
         </div>

@@ -10,63 +10,32 @@
   text-align: center;
 }
 
-/* .landing-hero-logo-container {
-  background: #d64040;
-  border-radius: 0.25em;
-  box-shadow: 1px 1px 0px black;
-  display: inline-block;
-  margin-right: 0.8em;
-  padding: 0.37em 0.5em;
-} */
-
 .landing-hero-logo-container {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .landing-hero-logo {
   width: 12rem;
 }
 
-/* .landing-hero-title{
-  font-family: 'Squada One', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-
-  text-shadow: 2px 2px 0px black;
-} */
-
 .landing-hero-phrase {
-  /* font-family: canada-type-gibson, sans-serif; */
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.5;
   margin: 1em 0;
   max-width: 25em;
+}
+
+.landing-hero-phrase > h2 {
+  margin-bottom: 0.5rem;
 }
 
 .landing-hero-btn-container {
   margin-top: 1em;
 }
 
-/* .btn {
-  background: #d64040;
-  border-bottom: 3px solid #771f1f;
-  border-radius: 0 0 5px 5px;
-  display: block;
-  font-family: 'Squada One', sans-serif;
-  font-size: 1.2rem;
-  margin-top: 0.5em;
-  padding: 1em;
-  width: 100%;
-}
-
-.btn:hover {
-  background: #ff4c4c;
-} */
-
-.btn {
-  background-color:#e93e3e;
-  border-radius: 50px;
+.landing-hero-btn-container .btn {
+  background-color:var(--main-red);
+  border-radius: 3px;
   font-size: 1rem;
   margin-bottom: 1em;
   padding: 0.8em;

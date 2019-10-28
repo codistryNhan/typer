@@ -13,12 +13,7 @@ const Timer = ({timer}) => {
         TIME LEFT
       </div>
       <div className="timer-body">
-        <div className="timer-item">
-          {timerLeft}:
-          <div className="timer-right">
-            {timerRight}
-          </div> 
-        </div> 
+        {timerLeft}:{timerRight}
       </div>
     </div>
   );

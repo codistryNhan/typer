@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.high-scores-container {
+  background: var(--main-blue-dark);
+}
+
 .high-scores-header {
   padding: 1rem 2rem;
 }

@@ -11,7 +11,8 @@
   box-sizing: border-box;
   font-size: 16px;
   
-  --main-blue:rgb(40, 66, 196);
+  --main-blue:#233AA9;
+  --main-blue-dark:#1B2E87;
   --main-red:#D64040;
   --main-yellow:#ffd800;
 }
@@ -94,7 +95,7 @@ button {
 
 /* Main */
 .main {
-  background-color: #154791;
+  background-color: #1B2E87;
   height: 100%;
 }
 
@@ -103,19 +104,23 @@ button {
   max-width: 550px;
 }
 
+.game-container {
+  background-color: #18276b;
+  height: 100%;
+  padding: 1rem 2rem;
+  position:relative;
+}
+
 /* Stats */
 .stats-container {
-  background-color:#233aaf;
-  color: white;
+  background-color: #18276b;
+  border-radius: 5px;
   display: flex;
   font-family: 'Squada One', sans-serif;
-  font-weight: 600;
-  padding: 2em 0 1.8em 0;
-
-  position: fixed;
-  bottom: 2.9rem;
-  left: 0;
-  width: 100%;
+  font-size: 0.7rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0 0.5rem 0;
 }
 
 .stats-container > div {
@@ -152,26 +157,6 @@ button {
   opacity: 1;
   animation: bounce 0.5s infinite;
 }
-
-/* Score */
-.score-container {
-  text-align: center;
-}
-.score-header {
-  font-size: 1rem;
-}
-.score-body{
-  font-size: 2rem;
-}
-
-/* Tweet container */
-.game-container {
-  height: 100%;
-  padding: 1.5em;
-  position:relative;
-}
-
-
 
 /* Multiplier */
 .multiplier-container {

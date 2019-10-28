@@ -2,25 +2,9 @@
 .timer-container {
   text-align: center;
 }
-.timer-header {
-  font-size: 1rem;
-}
+
 .timer-body{
-  font-size: 2rem;
   display: flex;
+  font-size: 1.5rem;
   justify-content: space-evenly;
 }
-
-.timer-item{
-  margin-left: -1.2rem;
-  min-width: 2rem; 
-  position:relative;
-}
-
-.timer-right {
-  display: inline-block;
-  min-width: 1rem;
-
-  position: absolute;
-  left: 2.3rem;
-} 

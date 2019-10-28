@@ -6,15 +6,18 @@ import React from 'react';
 import { BrowserRouter as Router} from "react-router-dom";
 import Combo from './Combo';
 import Tweet from './Tweet';
+import Tweet2 from './Tweet2';
 import Loading from '../loading-page/LoadingPage';
 import MultiplierPopUp from './MultiplierPopUp';
 import MultiplierStars from './MultiplierStars';
-import Results from './Results'
+import Results from './Results';
+import Restart from './Restart';
 import Score from './Score';
 import Start from './Start';
 import Timer from './Timer';
 import TweetInfo from './TweetInfo';
 import TypedKeys from './TypedKeys';
+import './Game.css';
 
 class Game extends React.Component {
   constructor(props) {
@@ -248,10 +251,15 @@ class Game extends React.Component {
   render() {
     return (
       <>
-      <div ref={this.mainRef}>
+      <div className="main" ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
 
         <div className="game-container responsive-desktop">
+
+            <div className="stats-container">
+              <Timer timer={this.state.timer} />
+              <Score score={this.state.points} />
+            </div>
 
             
             <TweetInfo 
@@ -273,6 +281,8 @@ class Game extends React.Component {
               tweet={this.state.tweet} 
             />
 
+            {/*<Tweet2 tweet={this.state.tweet}/>*/}
+
             {this.state.gameStart 
               && 
               <TypedKeys 
@@ -286,10 +296,9 @@ class Game extends React.Component {
               <Start gameStart={this.gameStart}/>
             }
 
-            <div className="stats-container">
-              <Timer timer={this.state.timer} />
-              <Score score={this.state.points} />
-            </div>  
+            <Restart reset={this.resetGame}/>
+
+              
           </div>
 
       </div>
