@@ -31,7 +31,7 @@
     ]
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-pro": "^5.11.1",
+    "@fortawesome/fontawesome-free": "^5.11.1",
     "moment": "^2.24.0"
   }
 }
