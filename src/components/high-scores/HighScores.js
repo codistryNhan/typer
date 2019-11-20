@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../loading-page/LoadingPage';
 import './HighScores.css';
 
 class HighScores extends React.Component {
@@ -6,6 +7,7 @@ class HighScores extends React.Component {
     super(props)
 
     this.state = {
+      isLoading: true,
       highScores : []
     }
 
@@ -17,7 +19,7 @@ class HighScores extends React.Component {
     fetch(url)
      .then( data => data.json() )
      .then( data => {
-      this.setState({highScores: data})
+      this.setState({highScores: data, isLoading: false})
      })
      .catch( err => console.log(err) );
   }
@@ -36,6 +38,7 @@ class HighScores extends React.Component {
 
     return(
       <div className="high-scores-container">
+        {this.state.isLoading && <Loading />}
         <div className="high-scores-header">
           <h1>High Scores</h1>
         </div>
