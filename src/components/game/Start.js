@@ -4,7 +4,7 @@ import './Start.css';
 const Start = ({gameStart}) => {
   return (
     <div className="start">
-      <div>
+      <div className="noselect">
         Begin typing to start game
       </div>
     </div>

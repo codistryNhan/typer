@@ -13,6 +13,7 @@
   
   --main-blue:#233AA9;
   --main-blue-dark:#1B2E87;
+  --secontary-blue:#18276b;
   --main-red:#D64040;
   --main-red-dark: #FF9797;
   --main-yellow:#ffd800;
@@ -96,8 +97,9 @@ button {
 
 /* Main */
 .main {
-  background-color: #1B2E87;
+  background-color: var(--main-blue-dark);
   height: 100%;
+  width: 100%;
 }
 
 .main-container {
@@ -105,16 +107,9 @@ button {
   max-width: 550px;
 }
 
-.game-container {
-  background-color: #18276b;
-  height: 100%;
-  padding: 1rem 2rem;
-  position:relative;
-}
-
 /* Stats */
 .stats-container {
-  background-color: #18276b;
+  background-color: var(--secontary-blue);
   border-radius: 5px;
   display: flex;
   font-family: 'Squada One', sans-serif;
@@ -361,4 +356,14 @@ button {
 @keyframes multiplier-move-up {
   0% {transform: translateY(0);}
   100% {transform: translateY(-1rem);}
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
 }

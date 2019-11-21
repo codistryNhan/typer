@@ -39,7 +39,7 @@ class Score extends React.Component {
 
     return (
       <div className="score-container">
-        <div className="score-header">
+        <div className="score-header noselect">
           SCORE
         </div>
         <div className="score-body">

@@ -9,7 +9,7 @@ const Timer = ({timer}) => {
   
   return(
     <div className="timer-container">
-      <div className="timer-header">
+      <div className="timer-header noselect">
         TIME LEFT
       </div>
       <div className="timer-body">

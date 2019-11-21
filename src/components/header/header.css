@@ -1,4 +1,4 @@
-header.main-header{
+header.main-header {
   padding: 1rem 1rem 0.5rem 1rem;
 }
 
@@ -7,6 +7,20 @@ header.main-header{
 }
 
 .header-logo:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=40);
+}
+
+.back-button {
+  width: min-content;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.2rem;
+  font-size: 1.5rem;
+
+}
+
+.back-button:hover {
   opacity: 0.5;
   filter: alpha(opacity=40);
 }
