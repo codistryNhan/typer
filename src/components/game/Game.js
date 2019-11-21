@@ -19,6 +19,8 @@ import TweetInfo from './TweetInfo';
 import TypedKeys from './TypedKeys';
 import './Game.css';
 
+const averageWordLength = 5;
+
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -87,7 +89,7 @@ class Game extends React.Component {
     if(this.state.gameStart && this.state.timer === 0) {
       this.gameEnd();
       this.setState({
-        wpm: Math.floor((this.state.correctCount / 5.0)) * 6
+        wpm: Math.floor((this.state.correctCount / averageWordLength))
       });
     }
   }
