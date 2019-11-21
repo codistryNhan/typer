@@ -281,8 +281,6 @@ class Game extends React.Component {
               tweet={this.state.tweet} 
             />
 
-            <Tweet2 tweet={this.state.tweet}/>
-
             {this.state.gameStart 
               && 
               <TypedKeys 
