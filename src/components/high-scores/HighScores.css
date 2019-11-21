@@ -8,6 +8,9 @@
 .high-scores-container {
   background: var(--main-blue-dark);
   padding-top: 5rem;
+
+  display: block;
+  overflow: auto;
 }
 
 .high-scores-header {
