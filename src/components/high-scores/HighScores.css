@@ -7,6 +7,7 @@
 
 .high-scores-container {
   background: var(--main-blue-dark);
+  padding-top: 5rem;
 }
 
 .high-scores-header {

@@ -1,6 +1,6 @@
 .game-container {
-  background-color: var(--secontary-blue);
+  background-color: var(--secondary-blue);
   height: 100%;
   padding: 1rem 2rem;
-  position:relative;
+  padding-top: 5rem;
 }
