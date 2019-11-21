@@ -254,13 +254,12 @@ class Game extends React.Component {
       <div className="main" ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
 
-        <div className="game-container responsive-desktop">
+        <div className="game-container responsive-desktop noselect">
 
             <div className="stats-container">
               <Timer timer={this.state.timer} />
               <Score score={this.state.points} />
             </div>
-
             
             <TweetInfo 
               tweet={this.state.tweets[this.state.currentTweetsIndex]} 

@@ -39,12 +39,12 @@ class HighScores extends React.Component {
     return(
       <div className="high-scores-container">
         {this.state.isLoading && <Loading />}
-        <div className="high-scores-header">
+        <div className="high-scores-header noselect">
           <h1>High Scores</h1>
         </div>
         <div className="high-scores-table">
           <table>
-            <tr>
+            <tr className="noselect">
               <td>Rank</td>
               <td>Name</td>
               <td>Scores</td>
