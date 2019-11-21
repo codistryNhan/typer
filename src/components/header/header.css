@@ -5,3 +5,8 @@ header.main-header{
 .header-logo {
   width: 5rem;
 }
+
+.header-logo:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=40);
+}
