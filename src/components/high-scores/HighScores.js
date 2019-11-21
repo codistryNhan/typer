@@ -19,7 +19,10 @@ class HighScores extends React.Component {
     fetch(url)
      .then( data => data.json() )
      .then( data => {
-      this.setState({highScores: data, isLoading: false})
+      this.setState({highScores: data})
+     })
+     .then( () => {
+       this.setState({isLoading: false});
      })
      .catch( err => console.log(err) );
   }
