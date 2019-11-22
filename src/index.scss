@@ -17,8 +17,6 @@
   --main-red:#D64040;
   --main-red-dark: #B72020;
   --main-yellow:#ffd800;
-
-  --header-height: 4rem;
 }
 
 *,
@@ -100,6 +98,7 @@ button {
 /* Main */
 .main {
   background-color: var(--main-blue-dark);
+  height: 100%;
   width: 100%;
 }
 
