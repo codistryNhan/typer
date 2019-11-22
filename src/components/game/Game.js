@@ -74,7 +74,7 @@ class Game extends React.Component {
 
   componentDidUpdate() {
     //Get next tweet if index has reached the last character of current tweet
-    if(this.state.currentIndex === this.state.tweet.length - 1) {
+    if(this.state.currentIndex === this.state.tweet.length) {
       this.nextTweet();
     }
 
@@ -193,6 +193,11 @@ class Game extends React.Component {
 
   nextTweet = () => {
     const nextTweetIndex = this.state.currentTweetsIndex + 1;
+
+    if (nextTweetIndex >= this.state.tweets.length) {
+      return;
+    }
+    
     const nextTweet = this.state.tweets[nextTweetIndex].full_text.trim();
 
     this.setState( () => ({
