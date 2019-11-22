@@ -1,6 +1,5 @@
 .game-container {
   background-color: var(--secondary-blue);
   height: 100%;
-  padding: 1rem 2rem;
   padding-top: 5rem;
 }
