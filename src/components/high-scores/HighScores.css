@@ -7,9 +7,8 @@
 
 .high-scores-container {
   background: var(--main-blue-dark);
-  padding-top: 5rem;
+  padding-top: var(--header-height);
 
-  display: block;
   overflow: auto;
 }
 

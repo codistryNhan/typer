@@ -1,7 +1,14 @@
 header.main-header {
   padding: 1rem 1rem 0.5rem 1rem;
-  position:absolute; top:0px; left:0px; right:0px;overflow:hidden;
   background-color: var(--main-blue);
+
+  height: var(--header-height);
+  
+  position: fixed;
+  left:0;
+  top:0;
+  width:100%;
+  transition:top .3s;
 }
 
 .header-logo {
@@ -25,4 +32,8 @@ header.main-header {
 .back-button:hover {
   opacity: 0.5;
   filter: alpha(opacity=40);
+}
+
+.navbar--hidden {
+  opacity: 0;
 }

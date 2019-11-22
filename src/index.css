@@ -17,6 +17,8 @@
   --main-red:#D64040;
   --main-red-dark: #B72020;
   --main-yellow:#ffd800;
+
+  --header-height: 4rem;
 }
 
 *,
@@ -98,12 +100,13 @@ button {
 /* Main */
 .main {
   background-color: var(--main-blue-dark);
-  height: 100%;
+  height: calc(100% - 5rem);
   width: 100%;
 }
 
 .main-container {
   margin: 0 auto;
+  height: calc(100% - 5rem);
   max-width: 550px;
 }
 
@@ -366,4 +369,8 @@ button {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
+}
+
+.nav-up {
+  top: calc(var(--header-height) * -1.01);
 }
