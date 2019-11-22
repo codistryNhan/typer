@@ -39,6 +39,7 @@ class Game extends React.Component {
   }
 
   startRow = (row) => {
+    let x = 0;
     let y = 0;
     let end = this.state.xSize - 1;
     let reverse = false;
@@ -61,11 +62,17 @@ class Game extends React.Component {
     let cellsSelected = [id];
     this.setState({cellsSelected})
     
+    let start = 0;
+
     if(!reverse) {
       start++
     } else {
       start--;
     }
+  }
+
+  blockStart = (obj) => {
+
   }
 
   render() {
