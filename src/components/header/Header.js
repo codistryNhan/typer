@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Link} from "react-router-dom";
 import './header.css';
 
 
-
 const Header = () => {
   const [prevScrollpos, setPrevScrollpos] = useState(
     window.pageYOffset
@@ -20,7 +19,6 @@ const Header = () => {
   )
 
   const handleScroll = () => {
-      console.log('use effect')
     const currentScrollPos = window.pageYOffset;
     const visible = prevScrollpos > currentScrollPos;
   
