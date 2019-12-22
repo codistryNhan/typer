@@ -19,6 +19,8 @@ import TweetInfo from './TweetInfo';
 import TypedKeys from './TypedKeys';
 import './Game.css';
 
+const averageWordLength = 5;
+
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -72,7 +74,7 @@ class Game extends React.Component {
 
   componentDidUpdate() {
     //Get next tweet if index has reached the last character of current tweet
-    if(this.state.currentIndex === this.state.tweet.length - 1) {
+    if(this.state.currentIndex === this.state.tweet.length) {
       this.nextTweet();
     }
 
@@ -87,7 +89,7 @@ class Game extends React.Component {
     if(this.state.gameStart && this.state.timer === 0) {
       this.gameEnd();
       this.setState({
-        wpm: Math.floor((this.state.correctCount / 5.0)) * 6
+        wpm: Math.floor((this.state.correctCount / averageWordLength))
       });
     }
   }
@@ -191,6 +193,11 @@ class Game extends React.Component {
 
   nextTweet = () => {
     const nextTweetIndex = this.state.currentTweetsIndex + 1;
+
+    if (nextTweetIndex >= this.state.tweets.length) {
+      return;
+    }
+    
     const nextTweet = this.state.tweets[nextTweetIndex].full_text.trim();
 
     this.setState( () => ({
@@ -254,13 +261,12 @@ class Game extends React.Component {
       <div className="main" ref={this.mainRef}>
         {this.state.isLoading && <Loading />}
 
-        <div className="game-container responsive-desktop">
+        <div className="game-container responsive-desktop noselect">
 
             <div className="stats-container">
               <Timer timer={this.state.timer} />
               <Score score={this.state.points} />
             </div>
-
             
             <TweetInfo 
               tweet={this.state.tweets[this.state.currentTweetsIndex]} 
@@ -280,8 +286,6 @@ class Game extends React.Component {
               resetIncorrectKey={this.resetIncorrectKey}
               tweet={this.state.tweet} 
             />
-
-            <Tweet2 tweet={this.state.tweet}/>
 
             {this.state.gameStart 
               && 

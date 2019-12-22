@@ -4,9 +4,7 @@ import './Restart.css'
 function Restart(props) {
 
   return(
-    <div className="restart-container">
-      <button onClick={props.reset}>Restart</button>
-    </div>
+    <button className="restart-container btn" onClick={props.reset}>Restart </button>
   )
 }
 

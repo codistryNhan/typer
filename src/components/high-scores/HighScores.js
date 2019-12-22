@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../loading-page/LoadingPage';
 import './HighScores.css';
 
 class HighScores extends React.Component {
@@ -6,6 +7,7 @@ class HighScores extends React.Component {
     super(props)
 
     this.state = {
+      isLoading: true,
       highScores : []
     }
 
@@ -17,7 +19,10 @@ class HighScores extends React.Component {
     fetch(url)
      .then( data => data.json() )
      .then( data => {
-      this.setState({highScores: data})
+      this.setState({highScores: data});
+     })
+     .then( () => {
+       this.setState({isLoading: false});
      })
      .catch( err => console.log(err) );
   }
@@ -36,12 +41,13 @@ class HighScores extends React.Component {
 
     return(
       <div className="high-scores-container">
-        <div className="high-scores-header">
+        {this.state.isLoading && <Loading />}
+        <div className="high-scores-header noselect">
           <h1>High Scores</h1>
         </div>
         <div className="high-scores-table">
           <table>
-            <tr>
+            <tr className="noselect">
               <td>Rank</td>
               <td>Name</td>
               <td>Scores</td>
