@@ -10,16 +10,16 @@
   text-align: center;
   
   position: absolute;
-  top: 50%; left: 50%;
+  top: 45%; left: 50%;
   transform: translate(-50%,-50%);
 }
 
 .landing-hero-logo-container {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .landing-hero-logo {
-  width: 12rem;
+  width: 7rem;
 }
 
 .landing-hero-phrase {
@@ -33,19 +33,36 @@
   margin-bottom: 0.5rem;
 }
 
+.landing-hero-phrase > p {
+  font-size: 0.9em;
+}
+
 .landing-hero-btn-container {
   margin-top: 1em;
 }
 
 .landing-hero-btn-container .btn {
-  background-color:var(--main-red);
+  border: var(--main-blue) 1px solid;
   border-radius: 3px;
+  color: var(--main-blue);
   font-size: 1rem;
   margin-bottom: 1em;
   padding: 0.8em;
   width: 100%;
 }
 
-.btn:hover {
-  background-color:var(--main-red-dark);
+.landing-hero-btn-container .btn:hover {
+  background-color: var(--main-blue);
+  color: white;
+  cursor: pointer;
+}
+
+.landing-hero-btn-container .btn-primary {
+  background-color: var(--main-blue);
+  color: white;
+}
+
+.landing-hero-btn-container .btn-primary:hover {
+  background-color: white;
+  color: var(--main-blue);
 }

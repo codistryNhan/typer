@@ -10,18 +10,18 @@ const LandingPage = (props) => {
         <div>
           <header>
             <div className="landing-hero-logo-container">
-              <img alt="typerLogo" className="landing-hero-logo" src="/typerLogo3.svg" />
+              <img alt="typerLogo" className="landing-hero-logo" src="/blueBody.svg" />
             </div>
           </header>
 
           <div className="landing-hero-phrase">
-            <h2>A Typing Game</h2>
+            <h2>Tweeter in Chief</h2>
             <p>Improve your typing and foreign policy skills at the same time by typing out the tweets from the President of the United States as fast as you can!</p>
           </div>
 
           <div className="landing-hero-btn-container">
             <Link to="/game">
-              <button className="btn">
+              <button className="btn btn-primary">
                 Play Game
               </button>
             </Link>
@@ -31,14 +31,10 @@ const LandingPage = (props) => {
                 High Scores
               </button>
             </Link>
-
-            <br />
-            <div>*Game is still a work in progress*</div>
           </div>
         </div>
       </section>
     </div>
-    
     </>
   );
 };
