@@ -66,7 +66,7 @@ class Results extends React.Component {
 
     return (
       <>
-      <div className="modal-background noselect">
+      <div className="modal-background">
         <div className="results-container" onClick={this.focusInput}>
           <h1 className="results-header">Results</h1>
           

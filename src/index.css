@@ -68,7 +68,7 @@ button {
   opacity: 0.9
 }
 /* Nav */
-.nav{
+.nav {
   display: flex;
 
   font-size: 1rem;
@@ -359,12 +359,13 @@ button {
   100% {transform: translateY(-1rem);}
 }
 
+/*
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
-}
+  -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
+} 
+*/
