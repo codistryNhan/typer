@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Squada+One&display=swap');
-
 @import url("https://use.typekit.net/hfi1yzz.css");
 /* font-family: 'Lexend Deca', sans-serif; */
 /* font-family: 'Squada One', sans-serif; */
 /* font-family: 'Open Sans', sans-serif; */
 /* font-family: canada-type-gibson, sans-serif; */
-
 @import url('../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
 :root {
   box-sizing: border-box;
@@ -13,6 +11,7 @@
   
   --main-blue:#233AA9;
   --main-blue-dark:#1B2E87;
+  --main-blue-light:rgb(46, 73, 209);
   --secondary-blue:#18276b;
   --main-red:#D64040;
   --main-red-dark: #B72020;
@@ -45,7 +44,7 @@ a {
 
 body {
   background: white;
-  color: #  232323; 
+  color: #000000d7; 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-family: 'Lexend Deca';
   font-size: 1rem;
@@ -57,10 +56,15 @@ body {
 button {
   background-color: inherit;
   color: inherit;
+  cursor: pointer;
   border: 0;
   outline: 0;
   font-family: inherit;
   font-size: inherit;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .disabled {
@@ -87,7 +91,6 @@ button {
 }
 
 .nav-hamburger {
-  background-color: inherit;
   border: none;
   color: inherit;
   cursor: pointer;
@@ -99,7 +102,6 @@ button {
 
 /* Main */
 .main {
-  background-color: var(--main-blue-dark);
   width: 100%;
 }
 
@@ -110,10 +112,8 @@ button {
 
 /* Stats */
 .stats-container {
-  background-color: var(--secondary-blue);
   border-radius: 5px;
   display: flex;
-  font-family: 'Squada One', sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
   margin-bottom: 2rem;

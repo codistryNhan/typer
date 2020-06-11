@@ -1,7 +1,5 @@
 header.main-header {
   padding: 1rem 1rem 0.5rem 1rem;
-  background-color: var(--main-blue);
-
   height: var(--header-height);
   
   position: fixed;
@@ -20,17 +18,17 @@ header.main-header {
 }
 
 .back-button {
-  width: min-content;
-  position: absolute;
-  right: 1.5rem;
-  top: 1.2rem;
+  color: var(--main-blue-light);
   font-size: 1.5rem;
-
+  width: min-content;
+  
+  position: absolute;
+  left: 0.5rem;
+  top: 1.2rem;
 }
 
 .back-button:hover {
   opacity: 0.5;
-  filter: alpha(opacity=40);
 }
 
 .navbar--hidden {

@@ -29,13 +29,7 @@ const Header = () => {
   return (
     <header className={"main-header " + (!visible ? "navbar--hidden" : "")}>
       <Link to="/">
-        <div className="main-header-brand"> 
-          <div className="header-logo-container">
-            <img className="header-logo" alt="logo" src="/typerLogo3.svg" />
-          </div>
-        </div>
-        
-        <div className="back-button"><i class="fas fa-arrow-left"></i></div>
+        <button className="back-button"><i class="fas fa-arrow-left"></i></button>
       </Link> 
     </header>
   );

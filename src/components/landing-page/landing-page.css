@@ -52,9 +52,8 @@
 }
 
 .landing-hero-btn-container .btn:hover {
-  background-color: var(--main-blue);
-  color: white;
-  cursor: pointer;
+  border-color: var(--main-blue-light);
+  color: var(--main-blue-light);
 }
 
 .landing-hero-btn-container .btn-primary {
@@ -63,6 +62,6 @@
 }
 
 .landing-hero-btn-container .btn-primary:hover {
-  background-color: white;
-  color: var(--main-blue);
+  background-color: var(--main-blue-light);
+  color: white;
 }
